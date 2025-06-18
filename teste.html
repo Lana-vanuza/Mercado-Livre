@@ -41,8 +41,7 @@
         </select>
       
       </div>
-    <button class="btn-comprar">Comprar agora</button>
-
+    <button class="btn-comprar" onclick="salvarValoresEIrParaCheckout()">Comprar agora</button>
     <section class="descricao">
       <h2>Descrição do produto</h2>
       <p>
@@ -63,20 +62,22 @@
 </script>
   
 <script>
-  document.querySelector('.btn-comprar').addEventListener('click', function () {
-    const precoUnitario = 1999.00; // valor fixo do produto
-    const qtde = parseInt(document.getElementById('qtde-select').value);
-    const total = precoUnitario * qtde;
+  function salvarValoresEIrParaCheckout() {
+    const precoUnitario = 1999.00; // valor fixo do produto
+    const selectQtde = document.getElementById('qtde-select');
+    const qtde = selectQtde ? parseInt(selectQtde.value) : 1; // pega quantidade ou padrão 1
+    const total = precoUnitario * qtde;
 
-    // Salvar no localStorage
-    localStorage.setItem('valorTotal', total.toFixed(2));
-    localStorage.setItem('qtdeProduto', qtde);
-    localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
+    // Salvar no localStorage
+    localStorage.setItem('valorTotal', total.toFixed(2));
+    localStorage.setItem('qtdeProduto', qtde);
+    localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
 
-    // Ir para a próxima página
-    window.location.href = 'checkout.html';
-  });
+    // Redirecionar para checkout
+    window.location.href = 'checkout.html';
+  }
 </script>
+  
   
   
 </body>
