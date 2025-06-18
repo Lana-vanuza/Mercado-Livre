@@ -43,8 +43,6 @@
       </div>
     <button class="btn-comprar">Comprar agora</button>
 
-    </section>
-
     <section class="descricao">
       <h2>Descrição do produto</h2>
       <p>
@@ -67,7 +65,7 @@
 <script>
   document.querySelector('.btn-comprar').addEventListener('click', function () {
     const precoUnitario = 1999.00; // valor fixo do produto
-    const qtde = document.getElementById('qtde-select').value;
+    const qtde = parseInt(document.getElementById('qtde-select').value);
     const total = precoUnitario * qtde;
 
     // Salvar no localStorage
