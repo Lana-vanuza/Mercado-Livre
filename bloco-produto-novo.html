@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teste Compra - LibreMerc</title>
+  <title>Teste de Compra - LibreMerc</title>
   <style>
-    /* Estilo baseado no seu original */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
     .preco-detalhe {
       margin-top: 10px;
       font-size: 36px;
@@ -58,28 +61,32 @@
   <div class="qtde">
     <label for="qtde-select-novo">Quantidade:</label>
     <select id="qtde-select-novo">
-      <option>1 unidade</option>
-      <option>2 unidades</option>
-      <option>3 unidades</option>
-      <option>4 unidades</option>
+      <option value="1">1 unidade</option>
+      <option value="2">2 unidades</option>
+      <option value="3">3 unidades</option>
+      <option value="4">4 unidades</option>
     </select>
   </div>
 
   <button class="btn-comprar" id="btn-comprar-novo">Comprar agora</button>
 
   <script>
-    // Garantindo que o script está após o botão
-    document.getElementById('btn-comprar-novo').addEventListener('click', function () {
-      const precoUnitario = 1999.00;
-      const qtde = document.getElementById('qtde-select-novo').selectedIndex + 1;
-      const total = precoUnitario * qtde;
+    document.addEventListener('DOMContentLoaded', function () {
+      const botao = document.getElementById('btn-comprar-novo');
 
-      localStorage.setItem('valorTotal', total.toFixed(2));
-      localStorage.setItem('qtdeProduto', qtde);
-      localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
+      botao.addEventListener('click', function () {
+        const precoUnitario = 1999.00;
+        const qtde = parseInt(document.getElementById('qtde-select-novo').value);
+        const total = precoUnitario * qtde;
 
-      // Redireciona para checkout.html
-      window.location.href = 'checkout.html';
+        // Salva dados no localStorage
+        localStorage.setItem('valorTotal', total.toFixed(2));
+        localStorage.setItem('qtdeProduto', qtde);
+        localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
+
+        // Redireciona para a página de checkout
+        window.location.href = 'checkout.html';
+      });
     });
   </script>
 
