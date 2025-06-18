@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercado Livre</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- FontAwesome para ícones -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pVf8OfzHCp72/YbXCNcA9wIYkKZcu/tz/0v+ZosIm0x+TI/zWmOH6Gswb3IoNz5z2Ep+XNV7B+54ep2H+z+D0w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Meta Open Graph para redes sociais -->
+  <meta property="og:title" content="Mercado Livre - Os melhores produtos, com o melhor preço!" />
+  <meta property="og:description" content="Confira já o Samsung Galaxy A25 5G e outras ofertas imperdíveis." />
+  <meta property="og:image" content="https://mercad.netlify.app/assets/logo.png" />
+  <meta property="og:url" content="https://mercad.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <!-- Meta Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mercado Livre - Os melhores produtos, com o melhor preço!" />
+  <meta name="twitter:description" content="Veja o Samsung Galaxy A25 5G e muito mais em LibreMerc!" />
+  <meta name="twitter:image" content="https://mercad.netlify.app/assets/logo.png" />
+</head>
+
+<body>
+      <div class="preco-detalhe">
+        <span class="preco">R$ 1.999,00</span>
+        <small class="parcelas">em até 12x de R$ 166,59 sem juros</small>
+      </div>
+
+      <div class="qtde">
+        <label for="qtde-select">Quantidade:</label>
+        <select id="qtde-select">
+          <option>1 unidade</option>
+          <option>2 unidades</option>
+        </select>
+      </div>
+      <button class="btn-comprar" onclick="window.location.href='checkout.html'">Comprar agora</button>
+    </section>
+
+    <section class="descricao">
+      <h2>Descrição do produto</h2>
+      <p>
+        Smartphone Samsung Galaxy A25 5G com 128 GB de armazenamento, 6 GB de RAM, suporte a dual SIM. Tela 6,5' Full HD+, câmera traseira de 50 MP e frontal de 13 MP, bateria de 5 000 mAh. Garantia de 12 meses contra defeitos de fabricação.
+      </p>
+      <p>Inclui carregador rápido, cabo USB-C e capa protetora.</p>
+    </section>
+  </main>
+
+  <script>
+  const cep = localStorage.getItem("cep");
+  const cidade = localStorage.getItem("cidade");
+
+  if (cep && cidade) {
+    const link = document.getElementById("cep-link");
+    link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
+  }
+</script>
+
+  
+</body>
+    </html>
