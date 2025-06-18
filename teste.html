@@ -34,14 +34,16 @@
       </div>
 
       <div class="qtde">
-        <label for="qtde-select">Quantidade:</label>
-        <select id="qtde-select">
-  <option value="1">1 unidade</option>
-  <option value="2">2 unidades</option>
-        </select>
-      
-      </div>
-    <button class="btn-comprar" onclick="salvarValoresEIrParaCheckout()">Comprar agora</button>
+  <label for="qtde-select">Quantidade:</label>
+  <select id="qtde-select">
+    <option value="1">1 unidade</option>
+    <option value="2">2 unidades</option>
+  </select>
+</div>
+
+<!-- Apenas redireciona -->
+<button class="btn-comprar" onclick="window.location.href='checkout.html'">Comprar agora</button>
+  
     <section class="descricao">
       <h2>Descrição do produto</h2>
       <p>
@@ -62,23 +64,25 @@
 </script>
   
 <script>
-  function salvarValoresEIrParaCheckout() {
-    const precoUnitario = 1999.00; // valor fixo do produto
+  const precoUnitario = 1999.00;
+
+  function salvarValoresAuto() {
     const selectQtde = document.getElementById('qtde-select');
-    const qtde = selectQtde ? parseInt(selectQtde.value) : 1; // pega quantidade ou padrão 1
+    const qtde = selectQtde ? parseInt(selectQtde.value) : 1;
     const total = precoUnitario * qtde;
 
-    // Salvar no localStorage
     localStorage.setItem('valorTotal', total.toFixed(2));
     localStorage.setItem('qtdeProduto', qtde);
     localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
-
-    // Redirecionar para checkout
-    window.location.href = 'checkout.html';
   }
+
+  // Executa quando muda o select
+  document.getElementById('qtde-select').addEventListener('change', salvarValoresAuto);
+
+  // Garante que já salva na primeira vez (caso usuário não mexa)
+  salvarValoresAuto();
 </script>
-  
-  
+
   
 </body>
     </html>
