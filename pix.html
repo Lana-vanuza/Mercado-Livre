@@ -167,51 +167,44 @@
       }, 2000);
     });
   });
-    window.addEventListener("DOMContentLoaded", () => {
-  // Dados cliente
-  const nome = localStorage.getItem("nome") || "--";
-  const email = localStorage.getItem("email") || "--";
-  const celular = localStorage.getItem("celular") || localStorage.getItem("telefone") || "--";
 
-  const rua = localStorage.getItem("rua") || "";
-  const numero = localStorage.getItem("numero") || "";
-  const bairro = localStorage.getItem("bairro") || "";
-  const cidade = localStorage.getItem("cidade") || "";
-  const estado = localStorage.getItem("estado") || "";
-  const complemento = localStorage.getItem("complemento") || "";
+  // Preencher dados do cliente e da compra
+  window.addEventListener("DOMContentLoaded", () => {
+    // Dados do cliente
+    const nome = localStorage.getItem("nome") || "--";
+    const email = localStorage.getItem("email") || "--";
+    const celular = localStorage.getItem("celular") || localStorage.getItem("telefone") || "--";
 
-  const endereco = `${rua}, ${numero}${complemento ? " - " + complemento : ""} - ${bairro}, ${cidade} - ${estado}`;
+    const rua = localStorage.getItem("rua") || "";
+    const numero = localStorage.getItem("numero") || "";
+    const bairro = localStorage.getItem("bairro") || "";
+    const cidade = localStorage.getItem("cidade") || "";
+    const estado = localStorage.getItem("estado") || "";
+    const complemento = localStorage.getItem("complemento") || "";
 
-  document.getElementById("nomeCliente").textContent = nome;
-  document.getElementById("emailCliente").textContent = email;
-  document.getElementById("celularCliente").textContent = celular;
-  document.getElementById("enderecoCliente").textContent = endereco;
+    const endereco = `${rua}, ${numero}${complemento ? " - " + complemento : ""} - ${bairro}, ${cidade} - ${estado}`;
 
-  // Dados do pedido
-  const qtde = localStorage.getItem('qtdeProduto') || "--";
-  const precoUnitario = localStorage.getItem('precoUnitario') || "--";
-  const valorTotal = localStorage.getItem('valorTotal') || "--";
+    document.getElementById("nomeCliente").textContent = nome;
+    document.getElementById("emailCliente").textContent = email;
+    document.getElementById("celularCliente").textContent = celular;
+    document.getElementById("enderecoCliente").textContent = endereco;
 
-  document.getElementById('qtdeCompra').innerText = qtde;
-  document.getElementById('precoUnitario').innerText = precoUnitario.replace('.', ',');
-  document.getElementById('valorTotal').innerText = valorTotal.replace('.', ',');
-});
-    
+    // Dados da compra
+    const qtde = localStorage.getItem("qtdeProduto") || "--";
+    const precoUnitario = localStorage.getItem("precoUnitario") || "--";
 
-  </script>
-  
-  <script>
-  window.addEventListener("load", () => {
-    const qtde = parseInt(localStorage.getItem("qtdeProduto")) || 0;
-    const precoUnitario = parseFloat(localStorage.getItem("precoUnitario")) || 0;
-    const valorTotal = qtde * precoUnitario;
+    // Converte e calcula total
+    const qtdeNum = parseInt(qtde);
+    const precoNum = parseFloat(precoUnitario);
+    const valorTotal = qtdeNum && precoNum ? (qtdeNum * precoNum).toFixed(2) : "--";
 
-    // Atualiza o texto na tela com base no HTML da sua página
-    document.getElementById("qtdePix").textContent = qtde + " unidade" + (qtde > 1 ? "s" : "");
-    document.getElementById("precoPix").textContent = "R$ " + precoUnitario.toFixed(2).replace('.', ',');
-    document.getElementById("valorTotalPix").textContent = "R$ " + valorTotal.toFixed(2).replace('.', ',');
+    // Preenche os campos
+    document.getElementById("qtdeCompra").textContent = qtde;
+    document.getElementById("precoUnitario").textContent = precoUnitario !== "--" ? precoUnitario.replace('.', ',') : "--";
+    document.getElementById("valorTotal").textContent = valorTotal !== "--" ? valorTotal.replace('.', ',') : "--";
   });
   </script>
+  
   
 </body>
 </html>
