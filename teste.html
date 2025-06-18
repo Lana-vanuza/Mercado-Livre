@@ -65,39 +65,28 @@
 <script>
   const precoUnitario = 1999.00;
   const selectQtde = document.getElementById('qtde-select');
-  const btnConfirmar = document.getElementById('confirmarQtde');
-  const btnComprar = document.getElementById('btnComprar');
 
-  // Mostra botão "Confirmar" quando uma opção válida for selecionada
+  // Salva automaticamente ao mudar a quantidade
   selectQtde.addEventListener('change', () => {
-    if (parseInt(selectQtde.value) > 0) {
-      btnConfirmar.style.display = 'inline-block';
-    } else {
-      btnConfirmar.style.display = 'none';
-    }
-  });
-
-  // Confirma e salva a quantidade
-  btnConfirmar.addEventListener('click', () => {
     const qtde = parseInt(selectQtde.value);
     if (qtde > 0) {
-      const total = precoUnitario * qtde;
       localStorage.setItem('qtdeProduto', qtde);
       localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
+    } else {
+      localStorage.removeItem('qtdeProduto');
+      localStorage.removeItem('precoUnitario');
     }
   });
 
-  
-
-  // Manter seleção ao recarregar a página
+  // Carrega seleção anterior ao abrir a página
   window.addEventListener('load', () => {
     const qtdeSalva = localStorage.getItem('qtdeProduto');
     if (qtdeSalva) {
       selectQtde.value = qtdeSalva;
-      btnConfirmar.style.display = 'inline-block';
     }
   });
 </script>
+  
   
 </body>
     </html>
