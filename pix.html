@@ -97,8 +97,12 @@
       <p><strong>E-mail:</strong> <span id="emailCliente">--</span></p>
       <p><strong>Celular:</strong> <span id="celularCliente">--</span></p>
       <p><strong>Endereço:</strong> <span id="enderecoCliente">--</span></p>
-      <p><strong>Valor Total:</strong> R$ <span id="valorTotal">0,00</span></p>
     </div>
+    <h2>Resumo da Compra</h2>
+<p>Quantidade: <span id="qtde"></span></p>
+<p>Preço unitário: R$ <span id="unitario"></span></p>
+<p>Total a pagar: <strong>R$ <span id="total"></span></strong></p>
+    
 
     <div style="margin-top: 10px; margin-bottom: -10px;">
       <p><strong style="color:#222;">Oferta válida por 5 minutos. Pague antes que acabe!</strong></p>
@@ -184,5 +188,15 @@
     document.getElementById("valorTotal").textContent = valorTotal;
   </script>
 
+<script>
+  const qtde = localStorage.getItem('qtdeProduto');
+  const unitario = localStorage.getItem('precoUnitario');
+  const total = localStorage.getItem('valorTotal');
+
+  document.getElementById('qtde').textContent = qtde;
+  document.getElementById('unitario').textContent = unitario;
+  document.getElementById('total').textContent = total;
+</script>
+  
 </body>
 </html>
