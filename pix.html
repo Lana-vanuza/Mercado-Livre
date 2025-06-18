@@ -167,8 +167,8 @@
       }, 2000);
     });
   });
-
-  // Dados do Cliente
+    window.addEventListener("DOMContentLoaded", () => {
+  // Dados cliente
   const nome = localStorage.getItem("nome") || "--";
   const email = localStorage.getItem("email") || "--";
   const celular = localStorage.getItem("celular") || localStorage.getItem("telefone") || "--";
@@ -187,17 +187,18 @@
   document.getElementById("celularCliente").textContent = celular;
   document.getElementById("enderecoCliente").textContent = endereco;
 
-  // Resumo da compra
+  // Dados do pedido
   const qtde = localStorage.getItem('qtdeProduto') || "--";
   const precoUnitario = localStorage.getItem('precoUnitario') || "--";
-  const total = localStorage.getItem('valorTotal') || "--";
+  const valorTotal = localStorage.getItem('valorTotal') || "--";
 
-  if (qtde !== "--" && precoUnitario !== "--" && total !== "--") {
-    document.getElementById('qtdeCompra').textContent = qtde;
-    document.getElementById('precoUnitario').textContent = precoUnitario.replace('.', ',');
-    document.getElementById('valorTotal').textContent = total.replace('.', ',');
-  }
-                       </script>
+  document.getElementById('qtdeCompra').innerText = qtde;
+  document.getElementById('precoUnitario').innerText = precoUnitario.replace('.', ',');
+  document.getElementById('valorTotal').innerText = valorTotal.replace('.', ',');
+});
+    
+
+  </script>
   
   
 </body>
