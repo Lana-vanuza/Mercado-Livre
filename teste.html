@@ -70,9 +70,7 @@
   const btnConfirmar = document.getElementById('confirmarQtde');
   const btnComprar = document.getElementById('btnComprar');
 
-  let quantidadeConfirmada = false;
-
-  // Mostra ou esconde botão de confirmar baseado na seleção
+  // Mostra botão "Confirmar" quando uma opção válida for selecionada
   selectQtde.addEventListener('change', () => {
     if (parseInt(selectQtde.value) > 0) {
       btnConfirmar.style.display = 'inline-block';
@@ -81,6 +79,7 @@
     }
   });
 
+  // Confirma e salva a quantidade
   btnConfirmar.addEventListener('click', () => {
     const qtde = parseInt(selectQtde.value);
     if (qtde > 0) {
@@ -88,36 +87,29 @@
       localStorage.setItem('qtdeProduto', qtde);
       localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
       localStorage.setItem('valorTotal', total.toFixed(2));
-      quantidadeConfirmada = true;
-      alert(`Quantidade (${qtde}) confirmada! Agora você pode prosseguir com a compra.`);
-    } else {
-      alert('Por favor, selecione uma quantidade válida.');
-      localStorage.removeItem('qtdeProduto');
-      localStorage.removeItem('precoUnitario');
-      localStorage.removeItem('valorTotal');
-      quantidadeConfirmada = false;
+      alert(`Quantidade (${qtde}) confirmada!`);
     }
   });
 
-  // Bloqueia botão se a quantidade não foi confirmada
-  btnComprar.addEventListener('click', (e) => {
+  // Ao clicar em comprar agora, valida se a quantidade foi confirmada
+  function validarCompra() {
     const qtdeSalva = localStorage.getItem('qtdeProduto');
     if (!qtdeSalva || parseInt(qtdeSalva) === 0) {
       alert('Você precisa confirmar a quantidade antes de comprar.');
-      e.preventDefault(); // Evita o redirecionamento
+    } else {
+      window.location.href = 'checkout.html';
     }
-  });
+  }
 
-  // Restaura a seleção no carregamento da página
+  // Manter seleção ao recarregar a página
   window.addEventListener('load', () => {
     const qtdeSalva = localStorage.getItem('qtdeProduto');
-    if (qtdeSalva && parseInt(qtdeSalva) > 0) {
+    if (qtdeSalva) {
       selectQtde.value = qtdeSalva;
       btnConfirmar.style.display = 'inline-block';
     }
   });
 </script>
-  
   
 </body>
     </html>
