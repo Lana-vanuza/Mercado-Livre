@@ -1,0 +1,467 @@
+/* RESET e BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* HEADER PADRÃO (não usado no checkout e cep) */
+header {
+  background-color: #ffe600;
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+header .logo {
+  height: 40px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.header-center {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.busca-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.busca-input:focus {
+  outline: none;
+  border-color: #3483fa;
+}
+
+.menu-icon,
+.cart-icon {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* FAIXA DE CEP */
+.btn-cep {
+  background-color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.cep-bar {
+  background-color: #ffe600;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.cep-bar a {
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: normal;
+}
+
+.cep-bar i {
+  font-size: 16px;
+  color: #000;
+}
+
+/* CONTAINER PRINCIPAL */
+.produto-container {
+  max-width: 700px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* INFO PRODUTO */
+.info-produto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Selo mais vendido */
+.tag-mais-vendido {
+  background-color: #ff6600;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+/* Categoria */
+.categoria {
+  font-size: 13px;
+  color: #999;
+  font-weight: 600;
+}
+
+/* Título produto */
+.info-produto h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Avaliação */
+.avaliacao {
+  font-weight: 700;
+  font-size: 14px;
+  color: #3483fa;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.estrelas {
+  color: #3483fa;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+}
+
+.total {
+  color: #555;
+  font-weight: 400;
+}
+
+/* Galeria estilo Mercado Livre */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.main-image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.main-image img:hover {
+  transform: scale(1.03);
+}
+
+.dots-carousel {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #3483fa;
+}
+
+/* Galeria */
+
+#mainImage {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}
+
+/* Destaque oferta do dia */
+.oferta-dia {
+  margin-top: 12px;
+  background-color: #f7d13d;
+  color: #222;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  width: fit-content;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+/* Preço */
+.preco {
+  color: #00a650;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+/* Parcelas */
+.parcelas {
+  font-size: 13px;
+  color: #666;
+  margin-left: 8px;
+}
+
+/* Quantidade */
+.qtde {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.qtde label {
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+#qtde-select {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Botão comprar */
+.btn-comprar {
+  margin-top: 20px;
+  background-color: #3483fa;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+  background-color: #2769c6;
+}
+
+/* Descrição */
+.descricao {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.descricao h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* === ESTILOS PARA PÁGINAS CEP E CHECKOUT */
+
+/* Headers da página CEP e CHECKOUT */
+body.cep-page header,
+body.checkout-page header,
+body.pix-page header {
+  background-color: #ffe600;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza o logo */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.cep-page header .logo,
+body.checkout-page header .logo,
+body.pix-page header .logo {
+  height: 40px;
+  max-height: 50px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* Container principal das páginas CEP e CHECKOUT */
+body.cep-page .cep-container,
+body.checkout-page main.container,
+body.pix-page main.container {
+  max-width: 420px;
+  margin: 40px auto 60px auto;
+  padding: 20px 20px 30px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Inputs e botões padrão */
+body.cep-page input,
+body.cep-page select,
+body.checkout-page input,
+body.checkout-page select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+body.cep-page button,
+body.checkout-page button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  background-color: #3483fa;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+body.cep-page button:hover,
+body.checkout-page button:hover {
+  background-color: #2769c6;
+}
+
+/* Labels */
+body.cep-page label,
+body.checkout-page label {
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-top: 20px;
+  font-size: 14px;
+}
+/* Instruções do Pix */
+/* Bloco código Pix */
+.pix-codigo-container {
+  margin-top: 30px;
+}
+
+.pix-codigo-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.pix-codigo-box {
+  display: flex;
+  gap: 10px;
+  background-color: #f2f2f2;
+  padding: 12px;
+  border-radius: 8px;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.pix-codigo-box input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-family: monospace;
+  color: #333;
+  outline: none;
+}
+
+.pix-codigo-box button {
+  background-color: #3483fa;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pix-codigo-box button.copiado {
+  background-color: #00a650;
+}
+
+/* Instruções mais sérias */
+.pix-instrucoes {
+  background-color: #f0f0f0; /* cinza claro sutil */
+  padding: 25px 20px;
+  border-radius: 8px;
+  margin-top: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.pix-instrucoes h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pix-instrucoes h3 svg {
+  width: 22px;
+  height: 22px;
+  fill: #00B1B1; /* verde oficial do Pix */
+}
+
+.pix-instrucoes ol {
+  padding-left: 20px;
+  color: #444;
+}
+
+.pix-instrucoes li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+
+/* Ajuste responsivo */
+@media (max-width: 600px) {
+  body.cep-page .cep-container,
+  body.checkout-page main.container {
+    margin: 20px 15px 40px 15px;
+    padding: 15px;
+  }
+}

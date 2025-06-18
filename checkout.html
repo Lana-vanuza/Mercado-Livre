@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout | Mercado Livre</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .popup {
+      position: fixed;
+      top: 0; left: 0; right:0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .popup.hidden {
+      display: none;
+    }
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+      text-align: left;
+    }
+    .popup-content hr {
+      margin: 15px 0;
+    }
+    .popup-content p {
+      margin: 6px 0;
+    }
+    .btn-comprar {
+      display: inline-block;
+      background: #ffe600;
+      color: #333;
+      padding: 10px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    #fecharPopup {
+      background: #ccc;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    /* Mensagens discretas de erro */
+    .erro-validacao {
+      color: #c00;
+      font-size: 0.85rem;
+      margin-top: 3px;
+      height: 18px;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body class="checkout-page">
+
+  <header>
+    <a href="index.html">
+      <img src="assets/logo-1.png" alt="Logo LibreMerc" class="logo" />
+    </a>
+  </header>
+
+  <main class="container">
+    <h2>Finalizar Compra</h2>
+    <form id="checkoutForm" novalidate>
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" required />
+
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" required maxlength="14" placeholder="000.000.000-00" />
+      <div id="cpfError" class="erro-validacao" aria-live="polite"></div>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" required placeholder="seuemail@exemplo.com" />
+      <div id="emailError" class="erro-validacao" aria-live="polite"></div>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" required placeholder="(00) 00000-0000" />
+      <div id="telefoneError" class="erro-validacao" aria-live="polite"></div>
+
+      <button type="submit">Confirmar dados</button>
+    </form>
+  </main>
+
+  <!-- Pop-up -->
+  <div id="popup" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-content">
+      <h3 id="popupTitle">Confira seus dados</h3>
+      <div id="dados-confirmacao"></div>
+      <button id="fecharPopup" type="button">Corrigir</button>
+      <a href="pix.html" class="btn-comprar">Ir para pagamento</a>
+    </div>
+  </div>
+
+  <script>
+    function validarCPF(cpf) {
+      cpf = cpf.replace(/[^\d]+/g, '');
+      if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+      let soma = 0;
+      for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+      let resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      if (resto !== parseInt(cpf.charAt(9))) return false;
+
+      soma = 0;
+      for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      return resto === parseInt(cpf.charAt(10));
+    }
+
+    function validarEmail(email) {
+      // Regex simples para validar e-mail
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email.toLowerCase());
+    }
+
+    function validarTelefone(tel) {
+      // Telefones brasileiros: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX
+      // Remove tudo que não for número
+      tel = tel.replace(/\D/g, "");
+      return tel.length === 10 || tel.length === 11;
+    }
+
+    function getEnderecoLocalStorage() {
+      return {
+        cep: localStorage.getItem("cep") || "",
+        cidade: localStorage.getItem("cidade") || "",
+        estado: localStorage.getItem("estado") || "",
+        rua: localStorage.getItem("rua") || "",
+        numero: localStorage.getItem("numero") || "",
+        bairro: localStorage.getItem("bairro") || "",
+        complemento: localStorage.getItem("complemento") || ""
+      };
+    }
+
+    function preencherPopup(dados) {
+      const popup = document.getElementById("popup");
+      const confirmacao = document.getElementById("dados-confirmacao");
+
+      confirmacao.innerHTML = `
+        <p><strong>Nome:</strong> ${dados.nome}</p>
+        <p><strong>E-mail:</strong> ${dados.email}</p>
+        <p><strong>CPF:</strong> ${dados.cpf}</p>
+        <p><strong>Telefone:</strong> ${dados.telefone}</p>
+        <hr>
+        <p><strong>Endereço:</strong></p>
+        <p>${dados.rua}, ${dados.numero}</p>
+        <p>${dados.bairro} - ${dados.cidade}/${dados.estado}</p>
+        <p>CEP: ${dados.cep}</p>
+        <p>${dados.complemento || ""}</p>
+      `;
+
+      popup.classList.remove("hidden");
+    }
+
+    // Máscara CPF
+    function formatarCPF(value) {
+      return value
+        .replace(/\D/g, '')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    }
+
+    // Máscara telefone
+    function formatarTelefone(value) {
+      value = value.replace(/\D/g, '');
+      if (value.length > 11) value = value.slice(0, 11);
+      if (value.length > 10) {
+        return value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+      } else if (value.length > 5) {
+        return value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+      } else if (value.length > 2) {
+        return value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+      } else if (value.length > 0) {
+        return value.replace(/^(\d*)/, '($1');
+      }
+      return value;
+    }
+
+    // Inputs e mensagens
+    const cpfInput = document.getElementById("cpf");
+    const cpfError = document.getElementById("cpfError");
+
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
+
+    const telefoneInput = document.getElementById("telefone");
+    const telefoneError = document.getElementById("telefoneError");
+
+    cpfInput.addEventListener("input", e => {
+      e.target.value = formatarCPF(e.target.value);
+      if (e.target.value.length === 14) {
+        if (!validarCPF(e.target.value)) {
+          cpfError.textContent = "CPF inválido.";
+          cpfError.style.visibility = "visible";
+          cpfInput.setCustomValidity("CPF inválido");
+        } else {
+          cpfError.textContent = "";
+          cpfError.style.visibility = "hidden";
+          cpfInput.setCustomValidity("");
+        }
+      } else {
+        cpfError.textContent = "";
+        cpfError.style.visibility = "hidden";
+        cpfInput.setCustomValidity("");
+      }
+    });
+
+    emailInput.addEventListener("input", e => {
+      if (!validarEmail(e.target.value)) {
+        emailError.textContent = "E-mail inválido.";
+        emailError.style.visibility = "visible";
+        emailInput.setCustomValidity("E-mail inválido");
+      } else {
+        emailError.textContent = "";
+        emailError.style.visibility = "hidden";
+        emailInput.setCustomValidity("");
+      }
+    });
+
+    telefoneInput.addEventListener("input", e => {
+      e.target.value = formatarTelefone(e.target.value);
+      if (!validarTelefone(e.target.value)) {
+        telefoneError.textContent = "Telefone inválido.";
+        telefoneError.style.visibility = "visible";
+        telefoneInput.setCustomValidity("Telefone inválido");
+      } else {
+        telefoneError.textContent = "";
+        telefoneError.style.visibility = "hidden";
+        telefoneInput.setCustomValidity("");
+      }
+    });
+
+    document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const email = emailInput.value.trim();
+      const cpf = cpfInput.value.trim();
+      const telefone = telefoneInput.value.trim();
+      const endereco = getEnderecoLocalStorage();
+
+      // Validações finais ao enviar
+      let valido = true;
+
+      if (!nome) {
+        alert("Por favor, preencha o nome completo.");
+        valido = false;
+      }
+      if (!validarCPF(cpf)) {
+        alert("CPF inválido. Por favor, verifique e tente novamente.");
+        valido = false;
+      }
+      if (!validarEmail(email)) {
+        alert("E-mail inválido. Por favor, verifique e tente novamente.");
+        valido = false;
+      }
+      if (!validarTelefone(telefone)) {
+        alert("Telefone inválido. Por favor, verifique e tente novamente.");
+        valido = false;
+      }
+      if (!valido) return;
+
+      // Se endereço incompleto, salvar e mandar para página de CEP
+      if (!endereco.cep || !endereco.rua || !endereco.numero || !endereco.bairro || !endereco.cidade || !endereco.estado) {
+        localStorage.setItem("nome", nome);
+        localStorage.setItem("cpf", cpf);
+        localStorage.setItem("email", email);
+        localStorage.setItem("telefone", telefone);
+        window.location.href = "cep.html?from=checkout";
+        return;
+      }
+
+      // Salvar dados antes do popup
+      localStorage.setItem("nome", nome);
+      localStorage.setItem("email", email);
+      localStorage.setItem("cpf", cpf);
+      localStorage.setItem("telefone", telefone);
+
+      preencherPopup({ nome, email, cpf, telefone, ...endereco });
+    });
+
+    document.getElementById("fecharPopup").addEventListener("click", () => {
+      document.getElementById("popup").classList.add("hidden");
+    });
+
+    window.addEventListener("load", () => {
+      document.getElementById("nome").value = localStorage.getItem("nome") || "";
+      cpfInput.value = localStorage.getItem("cpf") || "";
+      document.getElementById("email").value = localStorage.getItem("email") || "";
+      telefoneInput.value = localStorage.getItem("telefone") || "";
+
+      // Se veio da página de CEP e pop=true, mostrar popup automaticamente
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("pop") === "true") {
+        const nome = localStorage.getItem("nome") || "";
+        const email = localStorage.getItem("email") || "";
+        const cpf = localStorage.getItem("cpf") || "";
+        const telefone = localStorage.getItem("telefone") || "";
+        const endereco = getEnderecoLocalStorage();
+
+        if (nome && email && cpf && telefone) {
+          preencherPopup({ nome, email, cpf, telefone, ...endereco });
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
