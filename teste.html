@@ -36,9 +36,10 @@
       <div class="qtde">
         <label for="qtde-select">Quantidade:</label>
         <select id="qtde-select">
-          <option>1 unidade</option>
-          <option>2 unidades</option>
+  <option value="1">1 unidade</option>
+  <option value="2">2 unidades</option>
         </select>
+      
       </div>
     <button class="btn-comprar">Comprar agora</button>
 
@@ -66,7 +67,7 @@
 <script>
   document.querySelector('.btn-comprar').addEventListener('click', function () {
     const precoUnitario = 1999.00; // valor fixo do produto
-    const qtde = document.getElementById('qtde-select').selectedIndex + 1;
+    const qtde = document.getElementById('qtde-select').value;
     const total = precoUnitario * qtde;
 
     // Salvar no localStorage
