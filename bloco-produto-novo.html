@@ -68,26 +68,23 @@
     </select>
   </div>
 
-  <button class="btn-comprar" id="btn-comprar-novo">Comprar agora</button>
+  <!-- Igual ao index original -->
+  <button class="btn-comprar" onclick="salvarEIrParaCheckout()">Comprar agora</button>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const botao = document.getElementById('btn-comprar-novo');
+    function salvarEIrParaCheckout() {
+      const precoUnitario = 1999.00;
+      const qtde = parseInt(document.getElementById('qtde-select-novo').value);
+      const total = precoUnitario * qtde;
 
-      botao.addEventListener('click', function () {
-        const precoUnitario = 1999.00;
-        const qtde = parseInt(document.getElementById('qtde-select-novo').value);
-        const total = precoUnitario * qtde;
+      // Salva dados no localStorage
+      localStorage.setItem('valorTotal', total.toFixed(2));
+      localStorage.setItem('qtdeProduto', qtde);
+      localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
 
-        // Salva dados no localStorage
-        localStorage.setItem('valorTotal', total.toFixed(2));
-        localStorage.setItem('qtdeProduto', qtde);
-        localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
-
-        // Redireciona para a página de checkout
-        window.location.href = 'checkout.html';
-      });
-    });
+      // Vai para o checkout (igual ao botão do index)
+      window.location.href = 'checkout.html';
+    }
   </script>
 
 </body>
