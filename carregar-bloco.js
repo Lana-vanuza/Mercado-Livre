@@ -9,3 +9,6 @@ fetch('bloco-produto-novo.html')
   .catch(error => {
     console.error('Erro ao carregar bloco novo:', error);
   });
+
+
+<script src="carregar-bloco.js"></script>
