@@ -5,37 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teste Compra - LibreMerc</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
+    /* Estilo baseado no seu original */
     .preco-detalhe {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 5px;
+      margin-top: 10px;
+      font-size: 36px;
+      font-weight: 700;
+      color: #3483fa;
     }
     .parcelas {
-      color: gray;
+      display: block;
       font-size: 14px;
-      margin-bottom: 15px;
+      color: #999;
+      font-weight: 400;
+      margin-top: 5px;
     }
     .qtde {
-      margin-bottom: 20px;
+      margin-top: 20px;
     }
     label {
-      font-weight: bold;
+      font-weight: 600;
       margin-right: 10px;
     }
     select {
-      padding: 5px;
+      padding: 8px;
       font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
     .btn-comprar {
+      margin-top: 25px;
       background-color: #3483fa;
       color: white;
       border: none;
-      padding: 12px 25px;
+      padding: 15px 40px;
       font-size: 18px;
+      font-weight: 700;
       cursor: pointer;
       border-radius: 4px;
     }
@@ -45,9 +49,10 @@
   </style>
 </head>
 <body>
+
   <section class="preco-detalhe">
-    R$ 1.999,00
-    <small class="parcelas">em até 12x de R$ 166,59 sem juros</small>
+    R$ 1.999,00
+    <small class="parcelas">em até 12x de R$ 166,59 sem juros</small>
   </section>
 
   <div class="qtde">
@@ -63,6 +68,7 @@
   <button class="btn-comprar" id="btn-comprar-novo">Comprar agora</button>
 
   <script>
+    // Garantindo que o script está após o botão
     document.getElementById('btn-comprar-novo').addEventListener('click', function () {
       const precoUnitario = 1999.00;
       const qtde = document.getElementById('qtde-select-novo').selectedIndex + 1;
@@ -72,8 +78,10 @@
       localStorage.setItem('qtdeProduto', qtde);
       localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
 
+      // Redireciona para checkout.html
       window.location.href = 'checkout.html';
     });
   </script>
+
 </body>
 </html>
