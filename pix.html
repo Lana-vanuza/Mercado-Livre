@@ -98,10 +98,13 @@
       <p><strong>Celular:</strong> <span id="celularCliente">--</span></p>
       <p><strong>Endereço:</strong> <span id="enderecoCliente">--</span></p>
     </div>
-    <h2>Resumo da Compra</h2>
-<p>Quantidade: <span id="qtde"></span></p>
-<p>Preço unitário: R$ <span id="unitario"></span></p>
-<p>Total a pagar: <strong>R$ <span id="total"></span></strong></p>
+    <div class="info-box" id="resumoCompra">
+  <h3>Resumo da Compra</h3>
+  <p><strong>Produto:</strong> Samsung Galaxy A25 5G</p>
+  <p><strong>Quantidade:</strong> <span id="qtdeCompra">--</span></p>
+  <p><strong>Preço unitário:</strong> R$ <span id="precoUnitario">--</span></p>
+  <p><strong>Total a pagar:</strong> R$ <span id="valorTotal">--</span></p>
+    </div>
     
 
     <div style="margin-top: 10px; margin-bottom: -10px;">
@@ -185,18 +188,22 @@
     document.getElementById("emailCliente").textContent = email;
     document.getElementById("celularCliente").textContent = celular;
     document.getElementById("enderecoCliente").textContent = endereco;
-    document.getElementById("valorTotal").textContent = valorTotal;
   </script>
 
 <script>
-  const qtde = localStorage.getItem('qtdeProduto');
-  const unitario = localStorage.getItem('precoUnitario');
-  const total = localStorage.getItem('valorTotal');
+  // Pega as informações do localStorage
+  const qtde = localStorage.getItem('qtdeProduto');
+  const precoUnitario = localStorage.getItem('precoUnitario');
+  const valorTotal = localStorage.getItem('valorTotal');
 
-  document.getElementById('qtde').textContent = qtde;
-  document.getElementById('unitario').textContent = unitario;
-  document.getElementById('total').textContent = total;
+  // Preenche o HTML
+  if (qtde && precoUnitario && valorTotal) {
+    document.getElementById('qtdeCompra').innerText = qtde;
+    document.getElementById('precoUnitario').innerText = precoUnitario.replace('.', ',');
+    document.getElementById('valorTotal').innerText = valorTotal.replace('.', ',');
+  }
 </script>
+
   
 </body>
 </html>
