@@ -70,8 +70,18 @@
   const precoUnitario = 1999.00;
   const selectQtde = document.getElementById('qtde-select');
   const btnConfirmar = document.getElementById('confirmarQtde');
+  const btnComprar = document.getElementById('btnComprar');
 
   let quantidadeConfirmada = false;
+
+  // Mostra ou esconde botão de confirmar baseado na seleção
+  selectQtde.addEventListener('change', () => {
+    if (parseInt(selectQtde.value) > 0) {
+      btnConfirmar.style.display = 'inline-block';
+    } else {
+      btnConfirmar.style.display = 'none';
+    }
+  });
 
   btnConfirmar.addEventListener('click', () => {
     const qtde = parseInt(selectQtde.value);
@@ -91,36 +101,25 @@
     }
   });
 
-  // Bloqueia o clique no botão se a quantidade não estiver confirmada
-  document.querySelector('.btn-comprar').addEventListener('click', (e) => {
+  // Bloqueia botão se a quantidade não foi confirmada
+  btnComprar.addEventListener('click', (e) => {
     const qtdeSalva = localStorage.getItem('qtdeProduto');
     if (!qtdeSalva || parseInt(qtdeSalva) === 0) {
       alert('Você precisa confirmar a quantidade antes de comprar.');
-      e.preventDefault(); // Impede o redirecionamento
+      e.preventDefault(); // Evita o redirecionamento
     }
   });
 
-  // Manter seleção após reload
+  // Restaura a seleção no carregamento da página
   window.addEventListener('load', () => {
     const qtdeSalva = localStorage.getItem('qtdeProduto');
-    if (qtdeSalva) {
+    if (qtdeSalva && parseInt(qtdeSalva) > 0) {
       selectQtde.value = qtdeSalva;
+      btnConfirmar.style.display = 'inline-block';
     }
   });
 </script>
-  <script> 
-  const selectQtde = document.getElementById('qtde-select');
-const btnConfirmar = document.getElementById('confirmarQtde');
-
-selectQtde.addEventListener('change', () => {
-  if (parseInt(selectQtde.value) > 0) {
-    btnConfirmar.style.display = 'inline-block';
-  } else {
-    btnConfirmar.style.display = 'none';
-  }
-});
-
-  </script>
+  
   
 </body>
     </html>
