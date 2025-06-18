@@ -66,48 +66,49 @@
     link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
   }
 </script>
-<script>  
-const precoUnitario = 1999.00;
-const btnComprar = document.getElementById('btnComprar');
-const selectQtde = document.getElementById('qtde-select');
-const btnConfirmar = document.getElementById('confirmarQtde');
+<script>
+  const precoUnitario = 1999.00;
+  const selectQtde = document.getElementById('qtde-select');
+  const btnConfirmar = document.getElementById('confirmarQtde');
 
-btnConfirmar.addEventListener('click', () => {
-  const qtde = parseInt(selectQtde.value);
-  if (qtde > 0) {
-    const total = precoUnitario * qtde;
-    localStorage.setItem('qtdeProduto', qtde);
-    localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
-    localStorage.setItem('valorTotal', total.toFixed(2));
-    btnComprar.textContent = `Comprar agora (${qtde} unidade${qtde > 1 ? 's' : ''})`;
-    alert(`Quantidade (${qtde}) confirmada! Agora você pode prosseguir com a compra.`);
-  } else {
-    alert('Por favor, selecione uma quantidade válida.');
-    btnComprar.textContent = 'Comprar agora';
-    localStorage.removeItem('qtdeProduto');
-    localStorage.removeItem('precoUnitario');
-    localStorage.removeItem('valorTotal');
-  }
-});
+  let quantidadeConfirmada = false;
 
-btnComprar.addEventListener('click', () => {
-  const qtdeSalva = localStorage.getItem('qtdeProduto');
-  if (!qtdeSalva || parseInt(qtdeSalva) === 0) {
-    alert('Você precisa confirmar a quantidade antes de comprar.');
-    return;
-  }
-  window.location.href = 'checkout.html';
-});
+  btnConfirmar.addEventListener('click', () => {
+    const qtde = parseInt(selectQtde.value);
+    if (qtde > 0) {
+      const total = precoUnitario * qtde;
+      localStorage.setItem('qtdeProduto', qtde);
+      localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
+      localStorage.setItem('valorTotal', total.toFixed(2));
+      quantidadeConfirmada = true;
+      alert(`Quantidade (${qtde}) confirmada! Agora você pode prosseguir com a compra.`);
+    } else {
+      alert('Por favor, selecione uma quantidade válida.');
+      localStorage.removeItem('qtdeProduto');
+      localStorage.removeItem('precoUnitario');
+      localStorage.removeItem('valorTotal');
+      quantidadeConfirmada = false;
+    }
+  });
 
-// Manter seleção e texto do botão após reload
-window.addEventListener('load', () => {
-  const qtdeSalva = localStorage.getItem('qtdeProduto');
-  if (qtdeSalva) {
-    selectQtde.value = qtdeSalva;
-    btnComprar.textContent = `Comprar agora (${qtdeSalva} unidade${qtdeSalva > 1 ? 's' : ''})`;
-  }
-});
+  // Bloqueia o clique no botão se a quantidade não estiver confirmada
+  document.querySelector('.btn-comprar').addEventListener('click', (e) => {
+    const qtdeSalva = localStorage.getItem('qtdeProduto');
+    if (!qtdeSalva || parseInt(qtdeSalva) === 0) {
+      alert('Você precisa confirmar a quantidade antes de comprar.');
+      e.preventDefault(); // Impede o redirecionamento
+    }
+  });
+
+  // Manter seleção após reload
+  window.addEventListener('load', () => {
+    const qtdeSalva = localStorage.getItem('qtdeProduto');
+    if (qtdeSalva) {
+      selectQtde.value = qtdeSalva;
+    }
+  });
 </script>
+  
   
 </body>
     </html>
