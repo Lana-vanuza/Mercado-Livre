@@ -61,7 +61,23 @@
     link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
   }
 </script>
+  
+<script>
+  document.querySelector('.btn-comprar').addEventListener('click', function () {
+    const precoUnitario = 1999.00; // valor fixo do produto
+    const qtde = document.getElementById('qtde-select').selectedIndex + 1;
+    const total = precoUnitario * qtde;
 
+    // Salvar no localStorage
+    localStorage.setItem('valorTotal', total.toFixed(2));
+    localStorage.setItem('qtdeProduto', qtde);
+    localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
+
+    // Ir para a próxima página
+    window.location.href = 'checkout.html';
+  });
+</script>
+  
   
 </body>
     </html>
