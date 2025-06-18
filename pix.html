@@ -200,6 +200,18 @@
 
   </script>
   
+  <script>
+  window.addEventListener("load", () => {
+    const qtde = parseInt(localStorage.getItem("qtdeProduto")) || 0;
+    const precoUnitario = parseFloat(localStorage.getItem("precoUnitario")) || 0;
+    const valorTotal = qtde * precoUnitario;
+
+    // Atualiza o texto na tela com base no HTML da sua página
+    document.getElementById("qtdePix").textContent = qtde + " unidade" + (qtde > 1 ? "s" : "");
+    document.getElementById("precoPix").textContent = "R$ " + precoUnitario.toFixed(2).replace('.', ',');
+    document.getElementById("valorTotalPix").textContent = "R$ " + valorTotal.toFixed(2).replace('.', ',');
+  });
+  </script>
   
 </body>
 </html>
