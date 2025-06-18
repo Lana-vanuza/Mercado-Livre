@@ -1,31 +1,79 @@
-<!-- bloco-produto-novo.html -->
-<section class="preco-detalhe">
-  <span class="preco">R$ 1.999,00</span>
-  <small class="parcelas">em até 12x de R$ 166,59 sem juros</small>
-</section>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teste Compra - LibreMerc</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .preco-detalhe {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .parcelas {
+      color: gray;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .qtde {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    select {
+      padding: 5px;
+      font-size: 16px;
+    }
+    .btn-comprar {
+      background-color: #3483fa;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .btn-comprar:hover {
+      background-color: #2968c8;
+    }
+  </style>
+</head>
+<body>
+  <section class="preco-detalhe">
+    R$ 1.999,00
+    <small class="parcelas">em até 12x de R$ 166,59 sem juros</small>
+  </section>
 
-<div class="qtde">
-  <label for="qtde-select-novo">Quantidade:</label>
-  <select id="qtde-select-novo">
-    <option>1 unidade</option>
-    <option>2 unidades</option>
-    <option>3 unidades</option>
-    <option>4 unidades</option>
-  </select>
-</div>
+  <div class="qtde">
+    <label for="qtde-select-novo">Quantidade:</label>
+    <select id="qtde-select-novo">
+      <option>1 unidade</option>
+      <option>2 unidades</option>
+      <option>3 unidades</option>
+      <option>4 unidades</option>
+    </select>
+  </div>
 
-<button class="btn-comprar" id="btn-comprar-novo">Comprar agora</button>
+  <button class="btn-comprar" id="btn-comprar-novo">Comprar agora</button>
 
-<script>
-  document.getElementById('btn-comprar-novo').addEventListener('click', function () {
-    const precoUnitario = 1999.00;
-    const qtde = document.getElementById('qtde-select-novo').selectedIndex + 1;
-    const total = precoUnitario * qtde;
+  <script>
+    document.getElementById('btn-comprar-novo').addEventListener('click', function () {
+      const precoUnitario = 1999.00;
+      const qtde = document.getElementById('qtde-select-novo').selectedIndex + 1;
+      const total = precoUnitario * qtde;
 
-    localStorage.setItem('valorTotal', total.toFixed(2));
-    localStorage.setItem('qtdeProduto', qtde);
-    localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
+      localStorage.setItem('valorTotal', total.toFixed(2));
+      localStorage.setItem('qtdeProduto', qtde);
+      localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
 
-    window.location.href = 'pagamento.html';
-  });
-</script>
+      window.location.href = 'checkout.html';
+    });
+  </script>
+</body>
+</html>
