@@ -36,16 +36,14 @@
       <div class="qtde">
   <label for="qtde-select">Quantidade:</label>
   <select id="qtde-select">
-    <option value="0" selected>Selecione a quantidade</option>
+    <option value="1" selected>Selecione a quantidade</option>
     <option value="1">1 unidade</option>
     <option value="2">2 unidades</option>
   </select>
-  <button id="confirmarQtde" class="btn-confirmar" style="display: none;">Confirmar quantidade</button>
-</div>
+  </div>
 
 <!-- Apenas redireciona -->
-<button id="btnComprar" class="btn-comprar" onclick="window.location.href='checkout.html'">Comprar agora</button>
-  
+<button id="btnComprar" class="btn-comprar" onclick="window.location.href='checkout.html'">Comprar agora</button> 
     <section class="descricao">
       <h2>Descrição do produto</h2>
       <p>
@@ -86,20 +84,10 @@
       const total = precoUnitario * qtde;
       localStorage.setItem('qtdeProduto', qtde);
       localStorage.setItem('precoUnitario', precoUnitario.toFixed(2));
-      localStorage.setItem('valorTotal', total.toFixed(2));
-      alert(`Quantidade (${qtde}) confirmada!`);
     }
   });
 
-  // Ao clicar em comprar agora, valida se a quantidade foi confirmada
-  function validarCompra() {
-    const qtdeSalva = localStorage.getItem('qtdeProduto');
-    if (!qtdeSalva || parseInt(qtdeSalva) === 0) {
-      alert('Você precisa confirmar a quantidade antes de comprar.');
-    } else {
-      window.location.href = 'checkout.html';
-    }
-  }
+  
 
   // Manter seleção ao recarregar a página
   window.addEventListener('load', () => {
