@@ -39,10 +39,10 @@
     <option value="0" selected>Selecione a quantidade</option>
     <option value="1">1 unidade</option>
     <option value="2">2 unidades</option>
-    <!-- adicione mais opções se quiser -->
   </select>
-  <button id="confirmarQtde">Confirmar quantidade</button>
-      </div>
+  <button id="confirmarQtde" style="display: none;">Confirmar quantidade</button>
+</div>
+
   
 
 <!-- Apenas redireciona -->
@@ -108,7 +108,19 @@
     }
   });
 </script>
-  
+  <script> 
+  const selectQtde = document.getElementById('qtde-select');
+const btnConfirmar = document.getElementById('confirmarQtde');
+
+selectQtde.addEventListener('change', () => {
+  if (parseInt(selectQtde.value) > 0) {
+    btnConfirmar.style.display = 'inline-block';
+  } else {
+    btnConfirmar.style.display = 'none';
+  }
+});
+
+  </script>
   
 </body>
     </html>
