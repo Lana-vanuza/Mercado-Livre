@@ -1,9 +1,11 @@
+/* ======== Layout Opiniões: Avaliação Geral com Estrelas e Barras ======== */
 .avaliacao-geral-container {
   display: flex;
   gap: 40px;
   align-items: flex-start;
   flex-wrap: wrap;
   margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .nota-geral {
@@ -14,8 +16,8 @@
 }
 
 .nota-geral h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 12px;
   color: #222;
 }
 
@@ -27,9 +29,10 @@
 }
 
 .estrelas-nota {
-  font-size: 24px;
+  font-size: 26px;
   color: #3483fa;
-  margin: 4px 0 8px;
+  margin: 6px 0 8px;
+  letter-spacing: 2px;
   user-select: none;
 }
 
@@ -38,6 +41,7 @@
   color: #777;
 }
 
+/* Lista da distribuição de estrelas */
 .distribuicao-estrelas {
   list-style: none;
   padding: 0;
@@ -50,14 +54,18 @@
   display: flex;
   align-items: center;
   margin-bottom: 6px;
-  gap: 8px;
+  gap: 10px;
   color: #555;
+}
+
+.distribuicao-estrelas li span {
+  width: 30px;
 }
 
 .distribuicao-estrelas .barra {
   flex: 1;
   height: 8px;
-  background: #ddd;
+  background: #e0e0e0;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -67,6 +75,7 @@
   background: #3483fa;
   border-radius: 4px;
 }
+
 /* ======== Estilos Gerais ======== */
 body {
   font-family: Arial, sans-serif;
@@ -82,7 +91,7 @@ h2, h3 {
   color: #222;
 }
 
-/* ======== Avaliação Geral ======== */
+/* ======== Avaliação Categorizada (opcional) ======== */
 .rating-list {
   list-style: none;
   padding: 0;
@@ -297,5 +306,10 @@ h2, h3 {
   .photo-modal .nav-btn {
     font-size: 22px;
     padding: 6px 10px;
+  }
+
+  .avaliacao-geral-container {
+    flex-direction: column;
+    gap: 20px;
   }
 }
