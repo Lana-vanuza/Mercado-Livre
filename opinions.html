@@ -1,60 +1,330 @@
-<section id="opinions-section">
-  <h3 class="opinions-title">Avaliação geral: <span class="stars">⭐ 4.8</span> (<span class="total-reviews">17.807</span> avaliações)</h3>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comentários do Produto | LibreMerc</title>
+  <style>
+    /* Avaliação geral - lista vertical */
+    .rating-list {
+      list-style: none;
+      padding: 0;
+      max-width: 250px;
+      margin-bottom: 30px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+    .rating-list li {
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rating-list .label {
+      font-weight: 600;
+      color: #444;
+    }
+    .rating-list .stars {
+      color: #3483fa; /* azul Mercado Livre */
+      font-size: 18px;
+      margin-right: 8px;
+      user-select: none;
+    }
+    .rating-list .value {
+      font-weight: 700;
+      color: #222;
+      user-select: none;
+    }
 
-  <div class="ratings">
-    <div class="rating-item">
-      <span class="label">Custo-benefício:</span>
-      <span class="value">4.7</span>
-    </div>
-    <div class="rating-item">
-      <span class="label">Câmera:</span>
-      <span class="value">4.6</span>
-    </div>
-    <div class="rating-item">
-      <span class="label">Bateria:</span>
-      <span class="value">4.5</span>
-    </div>
-    <div class="rating-item">
-      <span class="label">Durabilidade:</span>
-      <span class="value">4.6</span>
-    </div>
-  </div>
+    /* Estilo geral */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #fff;
+      color: #222;
+    }
+    h2, h3 {
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 12px;
+    }
 
-  <div class="photo-gallery">
-    <h4>Fotos dos compradores</h4>
-    <div class="photos">
-      <img src="https://via.placeholder.com/80x80?text=Foto+1" alt="Foto do cliente 1" />
-      <img src="https://via.placeholder.com/80x80?text=Foto+2" alt="Foto do cliente 2" />
-      <img src="https://via.placeholder.com/80x80?text=Foto+3" alt="Foto do cliente 3" />
-      <img src="https://via.placeholder.com/80x80?text=Foto+4" alt="Foto do cliente 4" />
-      <img src="https://via.placeholder.com/80x80?text=Foto+5" alt="Foto do cliente 5" />
+    /* Comentários */
+    .comentarios {
+      max-width: 650px;
+      margin-top: 20px;
+    }
+    .comentario {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+      display: flex;
+      gap: 15px;
+    }
+    .comentario:last-child {
+      border-bottom: none;
+    }
+    .comentario .foto {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .comentario .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .comentario .foto:hover img {
+      transform: scale(1.1);
+    }
+    .comentario .conteudo {
+      flex-grow: 1;
+    }
+    .comentario .nome {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #3483fa;
+    }
+    .comentario .estrelas {
+      color: #3483fa;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+    .comentario .texto {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #444;
+    }
+
+    /* Galeria de fotos dos clientes */
+    .photo-gallery {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      max-width: 500px;
+    }
+    .photo-gallery img.photo-thumb {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .photo-gallery img.photo-thumb:hover {
+      border-color: #3483fa;
+    }
+    .photo-gallery .more-photos {
+      font-weight: 700;
+      font-size: 18px;
+      color: #3483fa;
+      cursor: default;
+      user-select: none;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #3483fa;
+      border-radius: 8px;
+    }
+
+    /* Modal/carrossel fotos */
+    .photo-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-modal.active {
+      display: flex;
+    }
+    .photo-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 10px 50px;
+      box-sizing: border-box;
+    }
+    .photo-modal-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none;
+    }
+    .photo-modal .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      user-select: none;
+      background: transparent;
+      border: none;
+    }
+    .photo-modal .nav-btn {
+      background: rgba(0,0,0,0.5);
+      color: white;
+      font-size: 28px;
+      border: none;
+      cursor: pointer;
+      padding: 10px 15px;
+      user-select: none;
+      transition: background 0.3s;
+      border-radius: 6px;
+      margin: 0 10px;
+    }
+    .photo-modal .nav-btn:hover {
+      background: rgba(0,0,0,0.75);
+    }
+    .photo-modal-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0 0 0;
+      background: #eee;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="comments-section">
+    <h2>Opiniões dos clientes</h2>
+
+    <h3 class="opinions-title">Avaliação geral</h3>
+    <ul class="rating-list">
+      <li><span class="label">Custo-benefício:</span> <span class="stars">★★★★★</span> <span class="value">4.7</span></li>
+      <li><span class="label">Câmera:</span> <span class="stars">★★★★☆</span> <span class="value">4.6</span></li>
+      <li><span class="label">Bateria:</span> <span class="stars">★★★★☆</span> <span class="value">4.5</span></li>
+      <li><span class="label">Durabilidade:</span> <span class="stars">★★★★☆</span> <span class="value">4.6</span></li>
+    </ul>
+
+    <div class="photo-gallery">
+      <img src="https://via.placeholder.com/80x80?text=Foto+1" alt="Foto do cliente 1" class="photo-thumb" data-index="0" />
+      <img src="https://via.placeholder.com/80x80?text=Foto+2" alt="Foto do cliente 2" class="photo-thumb" data-index="1" />
+      <img src="https://via.placeholder.com/80x80?text=Foto+3" alt="Foto do cliente 3" class="photo-thumb" data-index="2" />
+      <img src="https://via.placeholder.com/80x80?text=Foto+4" alt="Foto do cliente 4" class="photo-thumb" data-index="3" />
+      <img src="https://via.placeholder.com/80x80?text=Foto+5" alt="Foto do cliente 5" class="photo-thumb" data-index="4" />
       <div class="more-photos">+7</div>
     </div>
+
+    <div class="comentarios">
+      <article class="comentario">
+        <div class="foto" title="Foto do cliente Ana">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Foto da Ana" class="photo-thumb" data-index="5" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Ana Paula</div>
+          <div class="estrelas">★★★★★</div>
+          <div class="texto">Produto excelente, chegou rápido e funcionando perfeitamente!</div>
+        </div>
+      </article>
+
+      <article class="comentario">
+        <div class="foto" title="Foto do cliente Carlos">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto do Carlos" class="photo-thumb" data-index="6" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Carlos Eduardo</div>
+          <div class="estrelas">★★★★☆</div>
+          <div class="texto">Gostei do celular, a bateria dura bastante, mas a câmera poderia ser melhor.</div>
+        </div>
+      </article>
+
+      <article class="comentario">
+        <div class="foto" title="Foto do cliente Juliana">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto da Juliana" class="photo-thumb" data-index="7" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Juliana Souza</div>
+          <div class="estrelas">★★★★☆</div>
+          <div class="texto">Ótimo custo-benefício. Recomendo a compra para quem quer um bom smartphone.</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Modal de fotos grande -->
+  <div class="photo-modal" id="photoModal">
+    <div class="photo-modal-content">
+      <button class="close-btn" id="modalCloseBtn" title="Fechar">&times;</button>
+      <button class="nav-btn" id="prevBtn" title="Foto anterior">&#10094;</button>
+      <img src="" alt="Foto grande" id="modalImage" />
+      <button class="nav-btn" id="nextBtn" title="Próxima foto">&#10095;</button>
+    </div>
   </div>
 
-  <div class="featured-comments">
-    <h4>Comentários em destaque</h4>
-    <article class="comment">
-      <div class="comment-header">
-        <strong>Maria S.</strong> <span class="verified">Compra confirmada</span> <time datetime="2024-03">Março 2024</time>
-      </div>
-      <p>Produto muito bom, para quem precisa de um celular com bateria o dia todo. Ótimas câmeras e ótimo desempenho.</p>
-    </article>
+  <script>
+    // Fotos em alta resolução para o modal (index na ordem das thumbs)
+    const photos = [
+      "https://via.placeholder.com/600x600?text=Foto+1",
+      "https://via.placeholder.com/600x600?text=Foto+2",
+      "https://via.placeholder.com/600x600?text=Foto+3",
+      "https://via.placeholder.com/600x600?text=Foto+4",
+      "https://via.placeholder.com/600x600?text=Foto+5",
+      "https://randomuser.me/api/portraits/women/45.jpg",
+      "https://randomuser.me/api/portraits/men/32.jpg",
+      "https://randomuser.me/api/portraits/women/68.jpg"
+    ];
 
-    <article class="comment">
-      <div class="comment-header">
-        <strong>João P.</strong> <span class="verified">Compra confirmada</span> <time datetime="2024-06">Junho 2024</time>
-      </div>
-      <p>Amei o celular, as câmeras são muito boas e o desempenho para jogos é excelente!</p>
-    </article>
+    const modal = document.getElementById("photoModal");
+    const modalImage = document.getElementById("modalImage");
+    const closeBtn = document.getElementById("modalCloseBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
 
-    <article class="comment">
-      <div class="comment-header">
-        <strong>Ana L.</strong> <span class="verified">Compra confirmada</span> <time datetime="2024-04">Abril 2024</time>
-      </div>
-      <p>Galera, câmeras excelentes. Gravação de vídeo top demais. Recomendo bastante.</p>
-    </article>
-  </div>
+    let currentIndex = 0;
 
-  <button id="load-more-comments" class="load-more-btn">Ver mais opiniões</button>
-</section>
+    function abrirModal(index) {
+      currentIndex = index;
+      modalImage.src = photos[currentIndex];
+      modal.classList.add("active");
+      document.body.style.overflow = 'hidden'; // trava scroll fundo
+    }
+
+    function fecharModal() {
+      modal.classList.remove("active");
+      document.body.style.overflow = ''; // libera scroll fundo
+    }
+
+    function mostrarAnterior() {
+      currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+      modalImage.src = photos[currentIndex];
+    }
+
+    function mostrarProximo() {
+      currentIndex = (currentIndex + 1) % photos.length;
+      modalImage.src = photos[currentIndex];
+    }
+
+    closeBtn.addEventListener("click", fecharModal);
+    modal.addEventListener("click", e => {
+      if (e.target === modal) fecharModal();
+    });
+    prevBtn.addEventListener("click", mostrarAnterior);
+    nextBtn.addEventListener("click", mostrarProximo);
+
+    document.querySelectorAll(".photo-thumb").forEach((img, idx) => {
+      img.addEventListener("click", () => abrirModal(idx));
+    });
+  </script>
+
+</body>
+</html>
