@@ -1,3 +1,72 @@
+.avaliacao-geral-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.nota-geral {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+}
+
+.nota-geral h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.media-nota {
+  font-size: 48px;
+  font-weight: bold;
+  color: #3483fa;
+  line-height: 1;
+}
+
+.estrelas-nota {
+  font-size: 24px;
+  color: #3483fa;
+  margin: 4px 0 8px;
+  user-select: none;
+}
+
+.total-avaliacoes {
+  font-size: 14px;
+  color: #777;
+}
+
+.distribuicao-estrelas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  width: 220px;
+}
+
+.distribuicao-estrelas li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  gap: 8px;
+  color: #555;
+}
+
+.distribuicao-estrelas .barra {
+  flex: 1;
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.distribuicao-estrelas .preenchimento {
+  height: 100%;
+  background: #3483fa;
+  border-radius: 4px;
+}
 /* ======== Estilos Gerais ======== */
 body {
   font-family: Arial, sans-serif;
