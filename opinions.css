@@ -1,0 +1,134 @@
+/* opinions.css */
+
+#opinions-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.opinions-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.ratings {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.rating-item {
+  background: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.rating-item .label {
+  display: block;
+  margin-bottom: 4px;
+  color: #777;
+}
+
+.photo-gallery h4,
+.featured-comments h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.photos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.photos img {
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.photos img:hover {
+  transform: scale(1.1);
+}
+
+.more-photos {
+  background: #3483fa;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 20px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.more-photos:hover {
+  background: #2968c8;
+}
+
+.featured-comments {
+  margin-top: 30px;
+}
+
+.comment {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.comment-header {
+  display: flex;
+  gap: 10px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+  align-items: center;
+}
+
+.verified {
+  background: #34a853;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.load-more-btn {
+  display: block;
+  margin: 0 auto 40px auto;
+  padding: 12px 30px;
+  background: #3483fa;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.load-more-btn:hover {
+  background-color: #2968c8;
+}
