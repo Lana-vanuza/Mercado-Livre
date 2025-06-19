@@ -1,68 +1,73 @@
-/* Container geral da seção */
+/* Container geral */
 .avaliacoes-container {
   background: #fff;
   padding: 24px 20px;
   border-top: 1px solid #ddd;
-  font-family: Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .avaliacoes-container h2 {
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 16px;
-  color: #222;
+  color: #333;
 }
 
-/* Lista de avaliações gerais */
-.avaliacoes-gerais {
-  list-style: none;
-  padding: 0;
+/* Avaliação geral com estrelas e contagem */
+.avaliacao-geral {
+  display: flex;
+  align-items: center;
   margin-bottom: 24px;
 }
 
-.avaliacoes-gerais li {
-  margin: 10px 0;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-}
-
-.estrela.azul {
+.estrelas {
   color: #3483fa;
   margin-right: 8px;
+}
+
+.estrelas i {
   font-size: 18px;
+}
+
+.qtde-avaliacoes {
+  font-size: 14px;
+  color: #666;
 }
 
 /* Comentários individuais */
 .comentario {
   border-top: 1px solid #eee;
   padding: 20px 0;
+  display: flex;
+  gap: 16px;
 }
 
 .resumo {
-  font-style: italic;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
   margin-bottom: 8px;
-  color: #444;
 }
 
 .cliente {
   font-size: 14px;
-  color: #777;
-  margin-bottom: 12px;
+  color: #888;
 }
 
-/* Galeria de imagens */
+/* Galeria de fotos no comentário */
 .galeria {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 8px;
 }
 
 .galeria img {
-  width: 90px;
-  height: 90px;
+  width: 72px;
+  height: 72px;
   object-fit: cover;
-  cursor: pointer;
   border-radius: 4px;
+  cursor: pointer;
   transition: transform 0.2s;
 }
 
@@ -70,79 +75,73 @@
   transform: scale(1.05);
 }
 
-/* Modal de imagens em tela cheia */
+/* Modal de foto */
 .modal {
   display: none;
   position: fixed;
-  z-index: 2000;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background-color: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
+  z-index: 3000;
 }
 
 .modal-conteudo {
-  margin: auto;
-  display: block;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 90%;
-  max-height: 85%;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  max-height: 80%;
 }
 
-.fechar {
+.modal-conteudo img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.modal-fechar {
   position: absolute;
-  top: 20px;
-  right: 35px;
+  top: 16px;
+  right: 24px;
   color: #fff;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 28px;
   cursor: pointer;
 }
 
+/* Navegação lateral */
 .nav {
   position: absolute;
   top: 50%;
-  background-color: rgba(255,255,255,0.3);
-  color: #000;
-  font-size: 32px;
-  padding: 10px 14px;
+  transform: translateY(-50%);
+  font-size: 36px;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  padding: 8px 12px;
   border: none;
   cursor: pointer;
-  transform: translateY(-50%);
   border-radius: 50%;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
 
 .nav:hover {
-  background-color: rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.6);
 }
 
-.nav.esquerda {
-  left: 20px;
-}
+.nav.esq { left: 16px; }
+.nav.dir { right: 16px; }
 
-.nav.direita {
-  right: 20px;
-}
-
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 600px) {
+  .comentario {
+    flex-direction: column;
+  }
   .galeria img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
-
-  .modal-conteudo {
-    max-width: 95%;
-    max-height: 75%;
-  }
-
   .nav {
-    font-size: 26px;
-    padding: 8px 12px;
+    font-size: 28px;
+    padding: 6px 10px;
   }
 }
