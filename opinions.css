@@ -1,147 +1,232 @@
-/* Container geral */
-.avaliacoes-container {
+/* ======== Estilos Gerais ======== */
+body {
+  font-family: Arial, sans-serif;
   background: #fff;
-  padding: 24px 20px;
-  border-top: 1px solid #ddd;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.avaliacoes-container h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #333;
-}
-
-/* Avaliação geral com estrelas e contagem */
-.avaliacao-geral {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-.estrelas {
-  color: #3483fa;
-  margin-right: 8px;
-}
-
-.estrelas i {
-  font-size: 18px;
-}
-
-.qtde-avaliacoes {
-  font-size: 14px;
-  color: #666;
-}
-
-/* Comentários individuais */
-.comentario {
-  border-top: 1px solid #eee;
-  padding: 20px 0;
-  display: flex;
-  gap: 16px;
-}
-
-.resumo {
-  flex: 1;
-  font-size: 16px;
-  font-weight: 500;
   color: #222;
-  margin-bottom: 8px;
+  margin: 0;
+  padding: 20px;
 }
 
-.cliente {
-  font-size: 14px;
-  color: #888;
+h2, h3 {
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #222;
 }
 
-/* Galeria de fotos no comentário */
-.galeria {
+/* ======== Avaliação Geral ======== */
+.rating-list {
+  list-style: none;
+  padding: 0;
+  max-width: 280px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.rating-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.rating-list .label {
+  font-weight: 600;
+  color: #444;
+}
+
+.rating-list .stars {
+  color: #3483fa;
+  font-size: 18px;
+  margin: 0 8px;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+.rating-list .value {
+  font-weight: bold;
+  color: #222;
+  user-select: none;
+}
+
+/* ======== Galeria de fotos dos clientes ======== */
+.photo-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 20px;
+  max-width: 500px;
 }
 
-.galeria img {
-  width: 72px;
-  height: 72px;
+.photo-gallery img.photo-thumb {
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
 }
 
-.galeria img:hover {
-  transform: scale(1.05);
+.photo-gallery img.photo-thumb:hover {
+  border-color: #3483fa;
 }
 
-/* Modal de foto */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
+.photo-gallery .more-photos {
+  font-weight: bold;
+  font-size: 18px;
+  color: #3483fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #3483fa;
+  border-radius: 8px;
+  user-select: none;
+}
+
+/* ======== Comentários dos Clientes ======== */
+.comentarios {
+  margin-top: 30px;
+  max-width: 650px;
+}
+
+.comentario {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.comentario:last-child {
+  border-bottom: none;
+}
+
+.comentario .foto {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.comentario .foto img {
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
-  z-index: 3000;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.modal-conteudo {
+.comentario .foto:hover img {
+  transform: scale(1.1);
+}
+
+.comentario .conteudo {
+  flex-grow: 1;
+}
+
+.comentario .nome {
+  font-weight: 700;
+  color: #3483fa;
+  margin-bottom: 4px;
+}
+
+.comentario .estrelas {
+  color: #3483fa;
+  margin-bottom: 6px;
+  user-select: none;
+}
+
+.comentario .texto {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* ======== Modal de imagem grande com navegação ======== */
+.photo-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-modal.active {
+  display: flex;
+}
+
+.photo-modal-content {
+  position: relative;
+  background: #fff;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 10px 50px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.photo-modal .close-btn {
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90%;
-  max-height: 80%;
-}
-
-.modal-conteudo img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.modal-fechar {
-  position: absolute;
-  top: 16px;
-  right: 24px;
-  color: #fff;
+  top: 10px;
+  right: 15px;
   font-size: 28px;
-  cursor: pointer;
-}
-
-/* Navegação lateral */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 36px;
-  color: #fff;
-  background: rgba(0,0,0,0.3);
-  padding: 8px 12px;
+  font-weight: bold;
+  background: transparent;
+  color: #444;
   border: none;
   cursor: pointer;
+  user-select: none;
+}
+
+.photo-modal .nav-btn {
+  background: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 28px;
+  padding: 8px 16px;
   border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
   transition: background 0.3s;
 }
 
-.nav:hover {
-  background: rgba(0,0,0,0.6);
+.photo-modal .nav-btn:hover {
+  background: rgba(0,0,0,0.7);
 }
 
-.nav.esq { left: 16px; }
-.nav.dir { right: 16px; }
-
-/* Responsividade */
+/* ======== Responsivo ======== */
 @media (max-width: 600px) {
   .comentario {
     flex-direction: column;
+    align-items: flex-start;
   }
-  .galeria img {
-    width: 60px;
-    height: 60px;
+
+  .photo-gallery img.photo-thumb,
+  .photo-gallery .more-photos {
+    width: 68px;
+    height: 68px;
   }
-  .nav {
-    font-size: 28px;
+
+  .photo-modal-content {
+    padding: 10px 20px;
+  }
+
+  .photo-modal .nav-btn {
+    font-size: 22px;
     padding: 6px 10px;
   }
 }
