@@ -1,0 +1,82 @@
+// opinions.js
+
+// Função que cria a seção HTML para opiniões
+function criarSecaoOpiniao() {
+  const sectionHTML = `
+    <section id="opinions-section">
+      <h3 class="opinions-title">Avaliação geral: <span class="stars">⭐ 4.8</span> (<span class="total-reviews">17.807</span> avaliações)</h3>
+
+      <div class="ratings">
+        <div class="rating-item">
+          <span class="label">Custo-benefício:</span>
+          <span class="value">4.7</span>
+        </div>
+        <div class="rating-item">
+          <span class="label">Câmera:</span>
+          <span class="value">4.6</span>
+        </div>
+        <div class="rating-item">
+          <span class="label">Bateria:</span>
+          <span class="value">4.5</span>
+        </div>
+        <div class="rating-item">
+          <span class="label">Durabilidade:</span>
+          <span class="value">4.6</span>
+        </div>
+      </div>
+
+      <div class="photo-gallery">
+        <h4>Fotos dos compradores</h4>
+        <div class="photos">
+          <img src="https://via.placeholder.com/80x80?text=Foto+1" alt="Foto do cliente 1" />
+          <img src="https://via.placeholder.com/80x80?text=Foto+2" alt="Foto do cliente 2" />
+          <img src="https://via.placeholder.com/80x80?text=Foto+3" alt="Foto do cliente 3" />
+          <img src="https://via.placeholder.com/80x80?text=Foto+4" alt="Foto do cliente 4" />
+          <img src="https://via.placeholder.com/80x80?text=Foto+5" alt="Foto do cliente 5" />
+          <div class="more-photos">+7</div>
+        </div>
+      </div>
+
+      <div class="featured-comments">
+        <h4>Comentários em destaque</h4>
+        <article class="comment">
+          <div class="comment-header">
+            <strong>Maria S.</strong> <span class="verified">Compra confirmada</span> <time datetime="2024-03">Março 2024</time>
+          </div>
+          <p>Produto muito bom, para quem precisa de um celular com bateria o dia todo. Ótimas câmeras e ótimo desempenho.</p>
+        </article>
+
+        <article class="comment">
+          <div class="comment-header">
+            <strong>João P.</strong> <span class="verified">Compra confirmada</span> <time datetime="2024-06">Junho 2024</time>
+          </div>
+          <p>Amei o celular, as câmeras são muito boas e o desempenho para jogos é excelente!</p>
+        </article>
+
+        <article class="comment">
+          <div class="comment-header">
+            <strong>Ana L.</strong> <span class="verified">Compra confirmada</span> <time datetime="2024-04">Abril 2024</time>
+          </div>
+          <p>Galera, câmeras excelentes. Gravação de vídeo top demais. Recomendo bastante.</p>
+        </article>
+      </div>
+
+      <button id="load-more-comments" class="load-more-btn">Ver mais opiniões</button>
+    </section>
+  `;
+
+  const container = document.createElement('div');
+  container.innerHTML = sectionHTML;
+  document.body.appendChild(container);
+}
+
+// Executa quando o DOM estiver carregado
+window.addEventListener('DOMContentLoaded', () => {
+  criarSecaoOpiniao();
+
+  // Aqui você pode adicionar lógica para carregar mais comentários com o botão "Ver mais opiniões"
+  const btnLoadMore = document.getElementById('load-more-comments');
+  btnLoadMore.addEventListener('click', () => {
+    alert('Aqui você pode implementar para carregar mais comentários.');
+  });
+});
