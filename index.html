@@ -226,7 +226,24 @@ function trocarImagem(index) {
     });
   });
 </script>
+<!-- Container onde as opiniões serão carregadas -->
+<div id="opinioes-container"></div>
 
+<!-- Script que carrega o opinions.html dinamicamente -->
+<script>
+  fetch("opinions.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("opinioes-container").innerHTML = html;
+
+      // Recarrega o script JS após inserir o HTML
+      const script = document.createElement("script");
+      script.src = "opinions.js";
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error("Erro ao carregar opiniões:", error));
+</script>
+  
   
 </body>
 </html>
