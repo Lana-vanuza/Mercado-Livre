@@ -199,7 +199,7 @@
     const valorTotal = qtdeNum && precoNum ? (qtdeNum * precoNum).toFixed(2) : "--";
 
     // Preenche os campos
-    document.getElementById("qtdeCompra").textContent = qtde;
+    document.getElementById("qtdeProduto").textContent = qtde;
     document.getElementById("precoUnitario").textContent = precoUnitario !== "--" ? precoUnitario.replace('.', ',') : "--";
     document.getElementById("valorTotal").textContent = valorTotal !== "--" ? valorTotal.replace('.', ',') : "--";
   });
