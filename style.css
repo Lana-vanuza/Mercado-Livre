@@ -302,6 +302,30 @@ header .logo {
   margin-bottom: 12px;
   color: #333;
 }
+.descricao-limitada {
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+}
+
+.descricao-limitada.expandido {
+  max-height: 2000px; /* ou 'none' se preferir liberar tudo */
+}
+
+#verMaisBtn {
+  background: none;
+  color: #3483fa;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+#verMaisBtn:hover {
+  text-decoration: underline;
+}
 
 /* === ESTILOS PARA PÁGINAS CEP E CHECKOUT */
 
