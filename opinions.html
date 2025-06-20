@@ -88,3 +88,35 @@
     </div>
   </article>
 </div>
+    <!-- Modal para imagem grande -->
+<div class="photo-modal" id="comentarioModal">
+  <div class="photo-modal-content">
+    <img id="comentarioModalImage" src="" alt="Imagem Ampliada" />
+    <button class="close-btn" id="comentarioModalClose">&times;</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.comentario-fotos img').forEach((img) => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('comentarioModal');
+      const modalImg = document.getElementById('comentarioModalImage');
+      modalImg.src = img.src;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.getElementById('comentarioModalClose').addEventListener('click', () => {
+    document.getElementById('comentarioModal').classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  document.getElementById('comentarioModal').addEventListener('click', (e) => {
+    if (e.target.id === 'comentarioModal') {
+      document.getElementById('comentarioModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+      </script>
+    
