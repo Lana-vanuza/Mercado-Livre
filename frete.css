@@ -1,0 +1,30 @@
+.frete-container {
+  background-color: #f0f8ff;
+  border: 1px solid #d0e5ff;
+  padding: 14px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.frete-container strong {
+  color: #00a650;
+}
+
+.frete-container .btn-frete {
+  background-color: #3483fa;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.frete-container .btn-frete:hover {
+  background-color: #2769c6;
+}
