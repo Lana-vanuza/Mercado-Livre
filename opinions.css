@@ -222,8 +222,10 @@
 }
 
 .photo-modal-content img {
-  max-width: 100%;
+  max-width: 90vw;
   max-height: 80vh;
+  border-radius: 12px;
+  object-fit: contain;
 }
 
 .close-btn,
@@ -267,3 +269,12 @@
     height: 68px;
   }
 }
+.comentario-fotos img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.comentario-fotos img:hover {
+  transform: scale(1.05);
+}
+
