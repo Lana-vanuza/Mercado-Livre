@@ -74,3 +74,12 @@ window.addEventListener('DOMContentLoaded', () => {
     img.addEventListener("click", () => abrirModal(idx));
   });
 });
+  // Também adiciona o clique nas imagens dos comentários
+  document.querySelectorAll(".comentario-fotos img").forEach(img => {
+    img.addEventListener("click", () => {
+      modalImage.src = img.src;
+      modal.classList.add("active");
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
