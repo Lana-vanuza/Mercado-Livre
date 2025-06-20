@@ -101,9 +101,9 @@
     <div class="info-box" id="resumoCompra">
   <h3>Resumo da Compra</h3>
   <p><strong>Produto:</strong> Samsung Galaxy A25 5G</p>
-  <p><strong>Quantidade:</strong> <span id="qtdeProduto">--</span></p>
-  <p><strong>Preço unitário:</strong> R$ <span id="precoUnitario">--</span></p>
-  <p><strong>Total a pagar:</strong> R$ <span id="valorTotal">--</span></p>
+  <p><strong>Quantidade:</strong> 01</p>
+  <p><strong>Preço unitário:</strong> R$ 1.999,00</p>
+  <p><strong>Total a pagar:</strong> R$ 1.999,00</p>
     </div>
     
 
@@ -204,7 +204,17 @@
     document.getElementById("valorTotal").textContent = valorTotal !== "--" ? valorTotal.replace('.', ',') : "--";
   });
   </script>
-  
+  <div id="footer-container"></div>
+
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    });
+</script>
+<link rel="stylesheet" href="footer.css" />
+
   
 </body>
 </html>
