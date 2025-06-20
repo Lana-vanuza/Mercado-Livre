@@ -37,58 +37,60 @@
     </ul>
 
     <!-- Comentários -->
-<div class="comentarios">
-  <article class="comentario">
-    <div class="foto">
-      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana" />
-    </div>
-    <div class="conteudo">
-      <div class="nome">Ana Paula</div>
-      <div class="estrelas">★★★★★</div>
-      <div class="texto">
-        Produto excelente! Chegou antes do prazo e veio tudo certinho. Recomendo muito.
-      </div>
-      <div class="comentario-fotos">
-  <img src="assets/comentario-foto1.jpeg" alt="Foto do Produto 1" />
-  <img src="assets/comentario-foto2.jpeg" alt="Foto do Produto 2" />
-      </div>
-      
-    </div>
-  </article>
+    <div class="comentarios">
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Ana Paula</div>
+          <div class="estrelas">★★★★★</div>
+          <div class="texto">
+            Produto excelente! Chegou antes do prazo e veio tudo certinho. Recomendo muito.
+          </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto1.jpeg" alt="Foto do Produto 1" />
+            <img src="assets/comentario-foto2.jpeg" alt="Foto do Produto 2" />
+          </div>
+        </div>
+      </article>
 
-  <article class="comentario">
-    <div class="foto">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos" />
-    </div>
-    <div class="conteudo">
-      <div class="nome">Carlos Eduardo</div>
-      <div class="estrelas">★★★★☆</div>
-      <div class="texto">
-        O celular é bom, mas veio sem película. Fora isso, a bateria dura bastante.
-      </div>
-      <div class="comentario-fotos">
-  <img src="assets/comentario-foto3.jpeg" alt="Foto do Produto 1" />
-      </div>
-    </div>
-  </article>
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Carlos Eduardo</div>
+          <div class="estrelas">★★★★☆</div>
+          <div class="texto">
+            O celular é bom, mas veio sem película. Fora isso, a bateria dura bastante.
+          </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto3.jpeg" alt="Foto do Produto 3" />
+          </div>
+        </div>
+      </article>
 
-  <article class="comentario">
-    <div class="foto">
-      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Luciana" />
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Luciana" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Luciana Mendes</div>
+          <div class="estrelas">★★★★★</div>
+          <div class="texto">
+            Superou minhas expectativas! Já é a segunda vez que compro e não me arrependo.
+          </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto4.jpeg" alt="Foto do Produto 4" />
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="conteudo">
-      <div class="nome">Luciana Mendes</div>
-      <div class="estrelas">★★★★★</div>
-      <div class="texto">
-        Superou minhas expectativas! Já é a segunda vez que compro e não me arrependo.
-      </div>
-      <div class="comentario-fotos">
-  <img src="assets/comentario-foto4.jpeg" alt="Foto do Produto 1" />
   </div>
-    </div>
-  </article>
-</div>
-    <!-- Modal para imagem grande -->
+</section>
+
+<!-- Modal para imagem ampliada -->
 <div class="photo-modal" id="comentarioModal">
   <div class="photo-modal-content">
     <img id="comentarioModalImage" src="" alt="Imagem Ampliada" />
@@ -96,27 +98,7 @@
   </div>
 </div>
 
-<script>
-  document.querySelectorAll('.comentario-fotos img').forEach((img) => {
-    img.addEventListener('click', () => {
-      const modal = document.getElementById('comentarioModal');
-      const modalImg = document.getElementById('comentarioModalImage');
-      modalImg.src = img.src;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  });
+<script src="opinions.js"></script>
 
-  document.getElementById('comentarioModalClose').addEventListener('click', () => {
-    document.getElementById('comentarioModal').classList.remove('active');
-    document.body.style.overflow = '';
-  });
-
-  document.getElementById('comentarioModal').addEventListener('click', (e) => {
-    if (e.target.id === 'comentarioModal') {
-      document.getElementById('comentarioModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-      </script>
-    
+</body>
+</html>
