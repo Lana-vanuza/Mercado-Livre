@@ -93,6 +93,7 @@
 
     <section class="descricao">
       <h2>Descrição do produto</h2>
+      <div class="descricao-limitada">
       <p>‎Experimente a próxima geração de entretenimento em casa com o incrível Projetor HY300. Com recursos de ponta e tecnologia avançada, este projetor redefine a maneira como você vivencia filmes, jogos e muito mais. Seja transportado para um mundo de imagens nítidas e vibrantes, tudo a partir do conforto do seu espaço.</p>
 ‎<p><strong>ESPECIFICAÇÕES:</strong></p>
 <p>Modelo do produto: HY300 Pro</p>
@@ -133,7 +134,9 @@
 <p>- Adaptador</p>
 
 <p><strong>Garantia do vendedor:</strong> 30 dias</p>
-      
+      </div>
+
+<button id="verMaisBtn">Ver mais</button>
     </section>
   </main>
 
@@ -300,6 +303,15 @@ function trocarImagem(index) {
 </script>
 <link rel="stylesheet" href="footer.css" />
   
+  <script>
+  const verMaisBtn = document.getElementById("verMaisBtn");
+  const desc = document.querySelector(".descricao-limitada");
+
+  verMaisBtn.addEventListener("click", () => {
+    desc.classList.toggle("expandido");
+    verMaisBtn.textContent = desc.classList.contains("expandido") ? "Ver menos" : "Ver mais";
+  });
+  </script>
   
   
 </body>
