@@ -9,7 +9,6 @@
 <body>
 
 <section id="comments-section">
-
   <!-- Bloco de Avaliação Geral com Barras -->
   <div class="avaliacao-geral-container">
     <div class="nota-geral">
@@ -49,7 +48,7 @@
   <!-- Comentários -->
   <div class="comentarios">
     <article class="comentario">
-      <div class="foto" title="Ana Paula">
+      <div class="foto" title="Foto do cliente Ana">
         <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Foto da Ana" class="photo-thumb" data-index="5" />
       </div>
       <div class="conteudo">
@@ -60,18 +59,38 @@
     </article>
 
     <article class="comentario">
-      <div class="foto" title="Carlos Eduardo">
+      <div class="foto" title="Foto do cliente Carlos">
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto do Carlos" class="photo-thumb" data-index="6" />
       </div>
       <div class="conteudo">
         <div class="nome">Carlos Eduardo</div>
         <div class="estrelas">★★★★☆</div>
-        <div class="texto">Muito bom, mas a bateria poderia durar um pouco mais.</div>
+        <div class="texto">Gostei muito do aparelho, só achei a bateria mediana.</div>
       </div>
     </article>
 
     <article class="comentario">
-      <div class="foto" title="Juliana Lima">
+      <div class="foto" title="Foto do cliente Juliana">
         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto da Juliana" class="photo-thumb" data-index="7" />
-      </
-      
+      </div>
+      <div class="conteudo">
+        <div class="nome">Juliana Silva</div>
+        <div class="estrelas">★★★★★</div>
+        <div class="texto">A câmera é ótima e o custo-benefício vale muito a pena. Recomendo!</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Modal de imagem grande -->
+<div id="photoModal" class="photo-modal">
+  <div class="photo-modal-content">
+    <button class="close-btn" id="modalCloseBtn">&times;</button>
+    <button class="nav-btn" id="prevBtn">&#10094;</button>
+    <img id="modalImage" src="" alt="Foto grande do cliente" />
+    <button class="nav-btn" id="nextBtn">&#10095;</button>
+  </div>
+</div>
+
+</body>
+</html>
