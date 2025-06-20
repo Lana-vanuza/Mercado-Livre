@@ -1,347 +1,330 @@
-/* ======== Paleta de Cores ======== */
-:root {
-  --cor-azul-ml: #3483fa;
-  --cor-amarelo-ml: #ffe600;
-  --cor-amarelo-hover: #ffdb14;
-  --cor-cinza-claro: #f5f5f5;
-  --cor-cinza-medio: #ccc;
-  --cor-cinza-escuro: #555;
+/* Reset básico e fonte */
+* {
+  box-sizing: border-box;
 }
 
-/* ======== Layout Opiniões: Avaliação Geral com Estrelas e Barras ======== */
+body, ul, li, h2, h3, p {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Container avaliação geral e barras */
 .avaliacao-geral-container {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-  margin-top: 20px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  max-width: 700px;
 }
 
+/* Bloco nota geral */
 .nota-geral {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .nota-geral h2 {
-  font-size: 26px;
-  margin-bottom: 12px;
-  color: var(--cor-azul-ml);
-  font-weight: 900;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
 }
 
 .media-nota {
-  font-size: 64px;
-  font-weight: 900;
-  color: var(--cor-azul-ml);
-  line-height: 1;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 48px;
+  font-weight: 700;
+  color: #3483fa;
+  line-height: 1;
+  user-select: none;
 }
 
 .estrelas-nota {
-  font-size: 28px;
-  color: var(--cor-azul-ml);
-  margin: 8px 0 12px;
-  letter-spacing: 2px;
-  user-select: none;
+  font-size: 26px;
+  color: #3483fa;
+  margin: 6px 0 8px;
+  letter-spacing: 2px;
+  user-select: none;
 }
 
 .total-avaliacoes {
-  font-size: 15px;
-  color: var(--cor-cinza-escuro);
-  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  font-weight: 400;
 }
 
-/* Lista da distribuição de estrelas */
+/* Lista distribuição de estrelas */
 .distribuicao-estrelas {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 15px;
-  width: 240px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  width: 220px;
+  color: #555;
 }
 
 .distribuicao-estrelas li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  gap: 12px;
-  color: var(--cor-cinza-escuro);
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  gap: 10px;
 }
 
 .distribuicao-estrelas li span {
-  width: 32px;
+  width: 30px;
+  font-weight: 600;
 }
 
 .distribuicao-estrelas .barra {
-  flex: 1;
-  height: 8px;
-  background: var(--cor-cinza-claro);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  flex: 1;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .distribuicao-estrelas .preenchimento {
-  height: 100%;
-  background: var(--cor-azul-ml);
-  border-radius: 4px;
-  transition: width 0.4s ease;
+  height: 100%;
+  background: #3483fa;
+  border-radius: 4px;
 }
 
-/* ======== Estilos Gerais ======== */
-body {
-  font-family: Arial, sans-serif;
-  background: #fff;
-  color: var(--cor-cinza-escuro);
-  margin: 0;
-  padding: 20px;
-}
-
-h2, h3 {
-  font-weight: 900;
-  margin-bottom: 14px;
-  color: var(--cor-azul-ml);
-}
-
-/* ======== Avaliação Categorizada (opcional) ======== */
+/* Avaliações por categoria */
 .rating-list {
-  list-style: none;
-  padding: 0;
-  max-width: 280px;
-  margin-bottom: 30px;
-  font-size: 16px;
+  list-style: none;
+  padding: 0;
+  max-width: 280px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #333;
 }
 
 .rating-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .rating-list .label {
-  font-weight: 700;
-  color: var(--cor-cinza-escuro);
+  font-weight: 600;
+  color: #333;
 }
 
 .rating-list .stars {
-  color: var(--cor-azul-ml);
-  font-size: 20px;
-  margin: 0 8px;
-  letter-spacing: 1.5px;
-  user-select: none;
+  color: #3483fa;
+  font-size: 18px;
+  margin: 0 8px;
+  letter-spacing: 1px;
+  user-select: none;
 }
 
 .rating-list .value {
-  font-weight: 900;
-  color: var(--cor-cinza-escuro);
-  user-select: none;
+  font-weight: 700;
+  color: #333;
+  user-select: none;
 }
 
-/* ======== Galeria de fotos dos clientes ======== */
+/* Galeria de fotos */
 .photo-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-  max-width: 520px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  max-width: 500px;
 }
 
 .photo-gallery img.photo-thumb {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
 }
 
 .photo-gallery img.photo-thumb:hover {
-  transform: scale(1.07);
-  border-color: var(--cor-amarelo-ml);
-  box-shadow: 0 4px 10px rgba(255, 230, 0, 0.7);
+  border-color: #3483fa;
 }
 
 .photo-gallery .more-photos {
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--cor-amarelo-ml);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--cor-amarelo-ml);
-  border-radius: 12px;
-  user-select: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: 700;
+  font-size: 18px;
+  color: #3483fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #3483fa;
+  border-radius: 8px;
+  user-select: none;
 }
 
-.photo-gallery .more-photos:hover {
-  background: #fff7b1;
-}
-
-/* ======== Comentários dos Clientes ======== */
+/* Comentários */
 .comentarios {
-  margin-top: 40px;
-  max-width: 700px;
+  margin-top: 30px;
+  max-width: 650px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  padding: 20px;
 }
 
 .comentario {
-  display: flex;
-  gap: 18px;
-  padding: 22px;
-  margin-bottom: 24px;
-  background: #fffbee;
-  border-radius: 14px;
-  box-shadow: 0 3px 8px rgba(255, 230, 0, 0.3);
-  transition: box-shadow 0.3s ease;
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
 }
 
-.comentario:hover {
-  box-shadow: 0 6px 16px rgba(255, 230, 0, 0.5);
+.comentario:last-child {
+  border-bottom: none;
 }
 
 .comentario .foto {
-  width: 62px;
-  height: 62px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.comentario .foto:hover {
+  border-color: #3483fa;
 }
 
 .comentario .foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .comentario .foto:hover img {
-  transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .comentario .conteudo {
-  flex-grow: 1;
+  flex-grow: 1;
 }
 
 .comentario .nome {
-  font-weight: 900;
-  color: var(--cor-amarelo-ml);
-  margin-bottom: 6px;
-  font-size: 18px;
+  font-weight: 700;
+  color: #3483fa;
+  margin-bottom: 6px;
+  font-size: 14px;
 }
 
 .comentario .estrelas {
-  color: var(--cor-azul-ml);
-  margin-bottom: 10px;
-  user-select: none;
-  font-size: 18px;
+  color: #3483fa;
+  margin-bottom: 6px;
+  user-select: none;
+  font-size: 13px;
 }
 
 .comentario .texto {
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--cor-cinza-escuro);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
 }
 
-/* ======== Modal de imagem grande com navegação ======== */
+/* Modal imagem grande */
 .photo-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
 }
 
 .photo-modal.active {
-  display: flex;
+  display: flex;
 }
 
 .photo-modal-content {
-  position: relative;
-  background: #fff;
-  max-width: 90vw;
-  max-height: 90vh;
-  padding: 10px 50px;
-  border-radius: 12px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  background: #fff;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 10px 50px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-modal-content img {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  pointer-events: none;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .photo-modal .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  background: transparent;
-  color: #444;
-  border: none;
-  cursor: pointer;
-  user-select: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  background: transparent;
+  color: #444;
+  border: none;
+  cursor: pointer;
+  user-select: none;
 }
 
 .photo-modal .nav-btn {
-  background: rgba(0,0,0,0.4);
-  color: white;
-  font-size: 28px;
-  padding: 8px 16px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  margin: 0 10px;
-  transition: background 0.3s;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 28px;
+  padding: 8px 16px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background 0.3s ease;
 }
 
 .photo-modal .nav-btn:hover {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.7);
 }
 
-/* ======== Responsivo ======== */
+/* Responsivo */
 @media (max-width: 600px) {
-  .comentario {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  .comentario {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-  .photo-gallery img.photo-thumb,
-  .photo-gallery .more-photos {
-    width: 68px;
-    height: 68px;
-  }
+  .photo-gallery img.photo-thumb,
+  .photo-gallery .more-photos {
+    width: 68px;
+    height: 68px;
+  }
 
-  .photo-modal-content {
-    padding: 10px 20px;
-  }
+  .photo-modal-content {
+    padding: 10px 20px;
+  }
 
-  .photo-modal .nav-btn {
-    font-size: 22px;
-    padding: 6px 10px;
-  }
+  .photo-modal .nav-btn {
+    font-size: 22px;
+    padding: 6px 10px;
+  }
 
-  .avaliacao-geral-container {
-    flex-direction: column;
-    gap: 20px;
-  }
+  .avaliacao-geral-container {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
