@@ -135,7 +135,6 @@
   border-radius: 10px;
 }
 
-/* Comentários */
 .comentarios {
   display: flex;
   flex-direction: column;
@@ -146,9 +145,10 @@
   display: flex;
   gap: 16px;
   background-color: #fff;
-  padding: 16px;
-  border-radius: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 16px 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  align-items: flex-start;
 }
 
 .foto img {
@@ -158,33 +158,44 @@
   object-fit: cover;
 }
 
+.conteudo {
+  flex: 1;
+}
+
 .conteudo .nome {
   font-weight: bold;
   color: #3483fa;
+  margin-bottom: 4px;
 }
 
 .conteudo .estrelas {
   color: #3483fa;
   font-size: 16px;
-  margin: 4px 0;
+  margin-bottom: 6px;
+  user-select: none;
 }
 
 .conteudo .texto {
   font-size: 14px;
   color: #444;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
 .comentario-fotos {
-  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .comentario-fotos img {
   width: 60px;
   height: 60px;
-  border-radius: 8px;
+  border-radius: 10px;
   object-fit: cover;
-  margin-right: 10px;
-}
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
 
 /* Modal mantido igual */
 .photo-modal {
