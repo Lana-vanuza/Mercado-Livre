@@ -150,73 +150,52 @@
     link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
   }
 </script>
-
-  
-  <script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
   const imagens = [
     'assets/produto-a.jpeg',
     'assets/produto-b.jpeg',
     'assets/produto-c.jpeg',
     'assets/produto-d.jpeg'
   ];
-    trocarImagem(0); // ativa a primeira imagem ao carregar
-    
 
   let currentImageIndex = 0;
   let startX = 0;
 
   const mainImage = document.getElementById('mainImage');
-function trocarImagem(index) {
-  const lightboxImg = document.querySelector('#lightbox img');
-  
-  mainImage.classList.remove('fade-in');
-  mainImage.classList.add('fade-out');
 
-  if (lightboxImg) {
-    lightboxImg.classList.remove('fade-in');
-    lightboxImg.classList.add('fade-out');
-  }
-
-  setTimeout(() => {
-    mainImage.src = imagens[index];
-    mainImage.onload = () => {
-      mainImage.classList.remove('fade-out');
-      mainImage.classList.add('fade-in');
-    };
+  function trocarImagem(index) {
+    const lightboxImg = document.querySelector('#lightbox img');
+    
+    mainImage.classList.remove('fade-in');
+    mainImage.classList.add('fade-out');
 
     if (lightboxImg) {
-      lightboxImg.src = imagens[index];
-      lightboxImg.onload = () => {
-        lightboxImg.classList.remove('fade-out');
-        lightboxImg.classList.add('fade-in');
-      };
+      lightboxImg.classList.remove('fade-in');
+      lightboxImg.classList.add('fade-out');
     }
-  }, 100); // dá tempo do fade-out acontecer
-  currentImageIndex = index;
 
-  const dots = document.querySelectorAll('.dot');
-  dots.forEach(dot => dot.classList.remove('active'));
-  if (dots[index]) dots[index].classList.add('active');
-}
-  
+    setTimeout(() => {
+      mainImage.src = imagens[index];
+      mainImage.onload = () => {
+        mainImage.classList.remove('fade-out');
+        mainImage.classList.add('fade-in');
+      };
 
-  mainImage.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
+      if (lightboxImg) {
+        lightboxImg.src = imagens[index];
+        lightboxImg.onload = () => {
+          lightboxImg.classList.remove('fade-out');
+          lightboxImg.classList.add('fade-in');
+        };
+      }
+    }, 100);
+    currentImageIndex = index;
 
-  mainImage.addEventListener('touchend', (e) => {
-    const endX = e.changedTouches[0].clientX;
-    handleSwipe(startX, endX);
-  });
-
-  mainImage.addEventListener('mousedown', (e) => {
-    startX = e.clientX;
-  });
-
-  mainImage.addEventListener('mouseup', (e) => {
-    const endX = e.clientX;
-    handleSwipe(startX, endX);
-  });
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+  }
 
   function handleSwipe(start, end) {
     const deltaX = start - end;
@@ -231,7 +210,6 @@ function trocarImagem(index) {
     trocarImagem(currentImageIndex);
   }
 
-  // Lightbox
   mainImage.addEventListener('click', function () {
     const lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
@@ -257,27 +235,27 @@ function trocarImagem(index) {
     lightbox.appendChild(img);
     document.body.appendChild(lightbox);
 
-    img.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    });
-    img.addEventListener('touchend', (e) => {
-      const endX = e.changedTouches[0].clientX;
-      handleSwipe(startX, endX);
-    });
-
-    img.addEventListener('mousedown', (e) => {
-      startX = e.clientX;
-    });
-    img.addEventListener('mouseup', (e) => {
-      const endX = e.clientX;
-      handleSwipe(startX, endX);
-    });
+    img.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+    img.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+    img.addEventListener('mousedown', (e) => startX = e.clientX);
+    img.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
 
     lightbox.addEventListener('click', () => {
       document.body.removeChild(lightbox);
     });
   });
-</script>
+
+  mainImage.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+  mainImage.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+  mainImage.addEventListener('mousedown', (e) => startX = e.clientX);
+  mainImage.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
+
+  trocarImagem(0); // ATIVA A IMAGEM INICIAL
+});
+                             </script>
+  
+  
+      
 <!-- Container onde as opiniões serão carregadas -->
 <div id="opinioes-container"></div>
 
