@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) prevBtn.addEventListener("click", mostrarAnterior);
   if (nextBtn) nextBtn.addEventListener("click", mostrarProximo);
 
-  document.querySelectorAll(".photo-thumb").forEach((img, idx) => {
+  document.querySelectorAll(".comentario-fotos img").forEach((img, idx) => {
     img.addEventListener("click", () => abrirModal(idx));
   });
 });
