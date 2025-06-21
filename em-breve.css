@@ -66,22 +66,15 @@ a {
 a:hover {
   background: #2769c6;
 }
-.info-pix {
-  font-size: 1rem;
-  color: #333;
-  margin: 20px 0;
-}
-
-.info-pix a {
+.link-pix {
+  all: unset;
   color: #2a9d8f;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
-.info-pix a:hover {
+.link-pix:hover {
   color: #21867a;
   text-decoration: none;
 }
-
