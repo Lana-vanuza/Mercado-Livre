@@ -10,7 +10,6 @@ html, body {
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .erro-container {
@@ -20,7 +19,7 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   max-width: 400px;
   width: 90%;
-  margin: 0 auto; /* <-- ESSA LINHA centraliza horizontalmente */
+  margin-top: 60px; /* espaço no topo */
 }
 
 .icone-erro {
