@@ -1,47 +1,42 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
 }
 
-.mensagem {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  max-width: 400px;
-  width: 90%;
+.erro-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
 }
 
-.mensagem h2 {
-  color: #333;
-  margin-bottom: 10px;
+.icone-erro {
+  font-size: 60px;
+  margin-bottom: 15px;
 }
 
-.mensagem p {
-  color: #666;
-  font-size: 1rem;
+h1 {
+  color: #333;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 
-.mensagem a {
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  color: #3483fa;
-  font-weight: bold;
+p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-.mensagem a:hover {
-  text-decoration: underline;
-}
 .icone-gear {
-  font-size: 80px;
+  font-size: 60px;
   animation: girar 2s linear infinite;
   color: #3483fa;
   margin-bottom: 20px;
@@ -50,4 +45,17 @@ body {
 @keyframes girar {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+a {
+  text-decoration: none;
+  background: #3483fa;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+a:hover {
+  background: #2769c6;
 }
