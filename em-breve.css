@@ -20,8 +20,32 @@ html, body {
 }
 
 .icone-erro {
-  font-size: 80px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 10px;
+}
+
+.icone-gear {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  animation: girar 2s linear infinite;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 h1 {
@@ -34,22 +58,6 @@ p {
   font-size: 1rem;
   color: #666;
   margin-bottom: 20px;
-}
-
-.icone-gear {
-  font-size: 60px;
-  color: #3483fa;
-  animation: girar 2s linear infinite;
-  margin-bottom: 20px;
-}
-
-@keyframes girar {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 a {
@@ -66,6 +74,7 @@ a {
 a:hover {
   background: #2769c6;
 }
+
 .link-pix {
   color: #2a9d8f;
   font-weight: bold;
