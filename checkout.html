@@ -8,16 +8,18 @@
   <style>
     .popup {
       position: fixed;
-      top: 0; left: 0; right:0; bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.5);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
     }
+
     .popup.hidden {
       display: none;
     }
+
     .popup-content {
       background: white;
       padding: 20px;
@@ -27,30 +29,34 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.25);
       text-align: left;
     }
+
     .popup-content hr {
       margin: 15px 0;
     }
+
     .popup-content p {
       margin: 6px 0;
     }
-    .btn-comprar {
-  display: inline-block;
-  background: #3483fa;
-  color: #fff;
-  padding: 14px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 15px;
-  cursor: pointer;
-  text-align: center;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
 
-.btn-comprar:hover {
-  background: #2769c6;
-}
+    .btn-comprar {
+      display: inline-block;
+      background: #3483fa;
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-comprar:hover {
+      background: #2769c6;
+    }
+
     #fecharPopup {
       background: #ccc;
       border: none;
@@ -59,13 +65,70 @@
       cursor: pointer;
       margin-right: 10px;
     }
-    /* Mensagens discretas de erro */
+
     .erro-validacao {
       color: #c00;
       font-size: 0.85rem;
       margin-top: 3px;
       height: 18px;
       visibility: hidden;
+    }
+
+    /* Novo Pop-up: Escolha de pagamento */
+    #popup-pagamento {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    #popup-pagamento .popup {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .opcoes-pagamento {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .opcoes-pagamento li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0;
+      padding: 10px;
+      background: #f1f1f1;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .opcoes-pagamento li:hover {
+      background: #e2e2e2;
+    }
+
+    .opcoes-pagamento img {
+      width: 30px;
+      height: auto;
+    }
+
+    .fechar-btn {
+      background: #ccc;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -99,13 +162,32 @@
     </form>
   </main>
 
-  <!-- Pop-up -->
+  <!-- Pop-up 1: Confirmação dos dados -->
   <div id="popup" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
     <div class="popup-content">
       <h3 id="popupTitle">Confira seus dados</h3>
       <div id="dados-confirmacao"></div>
       <button id="fecharPopup" type="button">Corrigir</button>
-      <a href="pix.html" class="btn-comprar">Ir para pagamento</a>
+      <button class="btn-comprar" id="abrirPagamento">Ir para pagamento</button>
+    </div>
+  </div>
+
+  <!-- Pop-up 2: Escolher forma de pagamento -->
+  <div id="popup-pagamento">
+    <div class="popup">
+      <h3>Escolha a forma de pagamento</h3>
+      <ul class="opcoes-pagamento">
+        <li onclick="escolherPagamento('pix')">
+          <img src="assets/pix.png" alt="Pix"> Pix
+        </li>
+        <li onclick="escolherPagamento('cartao')">
+          <img src="assets/visa.png" alt="Cartão"> Cartão de Crédito
+        </li>
+        <li onclick="escolherPagamento('boleto')">
+          <img src="assets/boleto.png" alt="Boleto"> Boleto Bancário
+        </li>
+      </ul>
+      <button onclick="fecharPopupPagamento()" class="fechar-btn">Cancelar</button>
     </div>
   </div>
 
@@ -128,14 +210,11 @@
     }
 
     function validarEmail(email) {
-      // Regex simples para validar e-mail
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email.toLowerCase());
     }
 
     function validarTelefone(tel) {
-      // Telefones brasileiros: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX
-      // Remove tudo que não for número
       tel = tel.replace(/\D/g, "");
       return tel.length === 10 || tel.length === 11;
     }
@@ -172,32 +251,7 @@
       popup.classList.remove("hidden");
     }
 
-    // Máscara CPF
-    function formatarCPF(value) {
-      return value
-        .replace(/\D/g, '')
-        .replace(/(\d{3})(\d)/, '$1.$2')
-        .replace(/(\d{3})(\d)/, '$1.$2')
-        .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-    }
-
-    // Máscara telefone
-    function formatarTelefone(value) {
-      value = value.replace(/\D/g, '');
-      if (value.length > 11) value = value.slice(0, 11);
-      if (value.length > 10) {
-        return value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
-      } else if (value.length > 5) {
-        return value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
-      } else if (value.length > 2) {
-        return value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
-      } else if (value.length > 0) {
-        return value.replace(/^(\d*)/, '($1');
-      }
-      return value;
-    }
-
-    // Inputs e mensagens
+    // Máscaras
     const cpfInput = document.getElementById("cpf");
     const cpfError = document.getElementById("cpfError");
 
@@ -208,7 +262,12 @@
     const telefoneError = document.getElementById("telefoneError");
 
     cpfInput.addEventListener("input", e => {
-      e.target.value = formatarCPF(e.target.value);
+      e.target.value = e.target.value
+        .replace(/\D/g, '')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
       if (e.target.value.length === 14) {
         if (!validarCPF(e.target.value)) {
           cpfError.textContent = "CPF inválido.";
@@ -239,7 +298,18 @@
     });
 
     telefoneInput.addEventListener("input", e => {
-      e.target.value = formatarTelefone(e.target.value);
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 10) {
+        e.target.value = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+      } else if (v.length > 5) {
+        e.target.value = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+      } else if (v.length > 2) {
+        e.target.value = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+      } else if (v.length > 0) {
+        e.target.value = v.replace(/^(\d*)/, '($1');
+      }
+
       if (!validarTelefone(e.target.value)) {
         telefoneError.textContent = "Telefone inválido.";
         telefoneError.style.visibility = "visible";
@@ -260,28 +330,14 @@
       const telefone = telefoneInput.value.trim();
       const endereco = getEnderecoLocalStorage();
 
-      // Validações finais ao enviar
       let valido = true;
+      if (!nome || !validarCPF(cpf) || !validarEmail(email) || !validarTelefone(telefone)) {
+        alert("Preencha todos os campos corretamente.");
+        valido = false;
+      }
 
-      if (!nome) {
-        alert("Por favor, preencha o nome completo.");
-        valido = false;
-      }
-      if (!validarCPF(cpf)) {
-        alert("CPF inválido. Por favor, verifique e tente novamente.");
-        valido = false;
-      }
-      if (!validarEmail(email)) {
-        alert("E-mail inválido. Por favor, verifique e tente novamente.");
-        valido = false;
-      }
-      if (!validarTelefone(telefone)) {
-        alert("Telefone inválido. Por favor, verifique e tente novamente.");
-        valido = false;
-      }
       if (!valido) return;
 
-      // Se endereço incompleto, salvar e mandar para página de CEP
       if (!endereco.cep || !endereco.rua || !endereco.numero || !endereco.bairro || !endereco.cidade || !endereco.estado) {
         localStorage.setItem("nome", nome);
         localStorage.setItem("cpf", cpf);
@@ -291,7 +347,6 @@
         return;
       }
 
-      // Salvar dados antes do popup
       localStorage.setItem("nome", nome);
       localStorage.setItem("email", email);
       localStorage.setItem("cpf", cpf);
@@ -304,13 +359,30 @@
       document.getElementById("popup").classList.add("hidden");
     });
 
+    document.getElementById("abrirPagamento").addEventListener("click", () => {
+      document.getElementById("popup").classList.add("hidden");
+      document.getElementById("popup-pagamento").style.display = "flex";
+    });
+
+    function escolherPagamento(tipo) {
+      fecharPopupPagamento();
+      if (tipo === "pix") {
+        window.location.href = "pix.html";
+      } else {
+        window.location.href = "em-breve.html";
+      }
+    }
+
+    function fecharPopupPagamento() {
+      document.getElementById("popup-pagamento").style.display = "none";
+    }
+
     window.addEventListener("load", () => {
       document.getElementById("nome").value = localStorage.getItem("nome") || "";
       cpfInput.value = localStorage.getItem("cpf") || "";
       document.getElementById("email").value = localStorage.getItem("email") || "";
       telefoneInput.value = localStorage.getItem("telefone") || "";
 
-      // Se veio da página de CEP e pop=true, mostrar popup automaticamente
       const params = new URLSearchParams(window.location.search);
       if (params.get("pop") === "true") {
         const nome = localStorage.getItem("nome") || "";
@@ -325,16 +397,15 @@
       }
     });
   </script>
-<div id="footer-container"></div>
 
-<script>
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-container').innerHTML = data;
-    });
-</script>
-<link rel="stylesheet" href="footer.css" />
-
+  <div id="footer-container"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      });
+  </script>
+  <link rel="stylesheet" href="footer.css" />
 </body>
 </html>
