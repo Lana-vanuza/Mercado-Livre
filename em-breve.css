@@ -67,20 +67,23 @@ a:hover {
   background: #2769c6;
 }
 .info-pix {
-  font-size: 0.95rem;
-  color: #333;
-  background: #e6f0ff;
-  padding: 10px 15px;
-  border-radius: 6px;
-  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #333;
+  background: #e6f0ff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
 }
+
 .info-pix a {
-  color: #3483fa;
-  text-decoration: none;
-  font-weight: bold;
+  color: #2a9d8f;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .info-pix a:hover {
-  text-decoration: underline;
+  color: #21867a;
+  text-decoration: none;
 }
-
