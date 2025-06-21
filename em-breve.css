@@ -40,3 +40,14 @@ body {
 .mensagem a:hover {
   text-decoration: underline;
 }
+.icone-gear {
+  font-size: 80px;
+  animation: girar 2s linear infinite;
+  color: #3483fa;
+  margin-bottom: 20px;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
