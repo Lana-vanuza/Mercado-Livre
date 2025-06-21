@@ -20,15 +20,14 @@ html, body {
   box-sizing: border-box;
 }
 
-.icone-erro,
-.icone-gear {
+.icone {
   width: 60px;
   height: 60px;
   object-fit: contain;
   margin-bottom: 20px;
 }
 
-.icone-gear {
+.engrenagem {
   animation: girar 2s linear infinite;
 }
 
