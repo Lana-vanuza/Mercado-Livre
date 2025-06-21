@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forma de pagamento em breve</title>
-  <link rel="stylesheet" href="em-breve.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forma de pagamento em breve</title>
+  <style>
+    body {
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .icone-gear {
+      font-size: 80px;
+      animation: girar 2s linear infinite;
+      color: #3483fa;
+      margin-bottom: 20px;
+    }
+
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .mensagem h2 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .mensagem p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .mensagem a {
+      text-decoration: none;
+      background: #3483fa;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .mensagem a:hover {
+      background: #2769c6;
+    }
+  </style>
 </head>
 <body>
-  <div class="mensagem">
-    <h2>Forma de pagamento em reforma</h2>
-    <p>Estamos trabalhando para liberar essa forma de pagamento em breve.</p>
-    <a href="checkout.html">Voltar para o checkout</a>
-  </div>
+  <div class="icone-gear">⚙️</div>
+  <div class="mensagem">
+    <h2>Forma de pagamento em reforma</h2>
+    <p>Estamos trabalhando para liberar essa forma de pagamento em breve.</p>
+    <a href="checkout.html">Voltar para o checkout</a>
+  </div>
 </body>
 </html>
