@@ -66,3 +66,12 @@ a {
 a:hover {
   background: #2769c6;
 }
+.info-pix {
+  font-size: 0.95rem;
+  color: #333;
+  background: #e6f0ff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
