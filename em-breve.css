@@ -17,6 +17,9 @@ html, body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   max-width: 400px;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza tudo internamente */
 }
 
 .icone-erro {
@@ -35,17 +38,13 @@ html, body {
 .icon {
   width: 18px;
   height: 18px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   margin-right: 6px;
 }
 
 @keyframes girar {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 h1 {
@@ -58,6 +57,7 @@ p {
   font-size: 1rem;
   color: #666;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 a {
