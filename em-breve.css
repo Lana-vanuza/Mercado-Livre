@@ -4,10 +4,10 @@ html, body {
   height: 100vh;
   font-family: Arial, sans-serif;
   background: #f4f4f4;
-  text-align: center;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .erro-container {
@@ -20,24 +20,16 @@ html, body {
   box-sizing: border-box;
 }
 
-.icone-erro {
+.icone-erro,
+.icone-gear {
   width: 60px;
   height: 60px;
-  margin-bottom: 10px;
+  object-fit: contain;
+  margin-bottom: 20px;
 }
 
 .icone-gear {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
   animation: girar 2s linear infinite;
-}
-
-.icon {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  margin-right: 6px;
 }
 
 @keyframes girar {
@@ -81,11 +73,6 @@ a:hover {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  display: inline;
 }
 
 .link-pix:hover {
