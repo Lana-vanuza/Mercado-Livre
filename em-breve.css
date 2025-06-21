@@ -67,14 +67,19 @@ a:hover {
   background: #2769c6;
 }
 .link-pix {
-  all: unset;
-  color: #2a9d8f;
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font: inherit !important;
+  color: #2a9d8f !important;
+  font-weight: bold !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+  display: inline !important;
 }
-
 .link-pix:hover {
-  color: #21867a;
-  text-decoration: none;
+  color: #21867a !important;
+  text-decoration: none !important;
 }
