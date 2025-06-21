@@ -1,23 +1,20 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background-color: #ffe600;
+  padding: 12px 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  justify-content: center; /* centraliza o logo */
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.erro-container {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  width: 90%;
+body.em-breve-page {
+  height: 40px;
+  max-height: 50px;
+  object-fit: contain;
+  cursor: pointer;
 }
+  
 
 .icone-erro {
   width: 60px;
