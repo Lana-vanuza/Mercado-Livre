@@ -4,13 +4,14 @@ html, body {
   height: 100%;
   font-family: Arial, sans-serif;
   background: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 100vh; /* Garante altura total da viewport */
 }
 
 .erro-container {
@@ -23,7 +24,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
 
 .icone-erro {
@@ -61,7 +61,6 @@ p {
   font-size: 1rem;
   color: #666;
   margin-bottom: 20px;
-  max-width: 100%;
 }
 
 a {
