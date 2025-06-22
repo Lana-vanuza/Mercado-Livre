@@ -1,67 +1,61 @@
-/* Container branco com título */
+/* Fundo geral da seção */
 .sugestoes-container {
   background-color: #fff;
   padding: 30px 20px;
   margin: 40px auto;
   border-radius: 12px;
   max-width: 800px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
 }
 
 .sugestoes-container h2 {
-  font-size: 1.4rem;
-  margin-bottom: 16px;
-  color: #333;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  color: #333;
 }
 
-/* Rolagem horizontal das sugestões */
-.sugestoes-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+.sugestoes-lista {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
 }
 
-.sugestoes-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.sugestoes-scroll::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-}
-
-/* Produto individual */
 .produto-sugerido {
-  min-width: 140px;
-  background: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding: 10px;
-  flex-shrink: 0;
-  text-align: center;
-  scroll-snap-align: start;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.03);
+  min-width: 150px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.03);
+  text-align: center;
+  scroll-snap-align: start;
 }
+
 
 .produto-sugerido img {
-  width: 80px;
-  height: auto;
-  object-fit: contain;
-  border-radius: 4px;
-  display: block;
-  margin: 0 auto 8px;
+  width: 100%;
+  max-width: 80px;
+  max-height: 80px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto 8px;
 }
 
+
 .produto-sugerido .nome {
-  font-size: 0.9rem;
-  color: #333;
-  margin: 8px 0 4px;
+  font-size: 0.9rem;
+  color: #333;
+  margin: 8px 0 4px;
 }
 
 .produto-sugerido .preco {
-  font-weight: bold;
-  color: #00a650;
-  font-size: 1rem;
+  font-weight: bold;
+  color: #00a650;
+  font-size: 1rem;
 }
