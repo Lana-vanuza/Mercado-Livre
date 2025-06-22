@@ -10,8 +10,8 @@ body.em-breve-page main.erro-container {
 }  
 
 .icone-erro {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin-bottom: 15px;
 }
 
@@ -39,7 +39,7 @@ body.em-breve-page main.erro-container {
 }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: #333;
   margin-bottom: 10px;
 }
