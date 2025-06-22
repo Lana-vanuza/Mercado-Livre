@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comentários do Produto | Mercado Livre</title>
+  <link rel="stylesheet" href="opinions.css" />
+</head>
+<body>
+
+<section id="comments-section">
+  <div class="opiniao-container">
+    <!-- Bloco de Avaliação Geral -->
+    <div class="avaliacao-geral-container">
+      <div class="nota-geral">
+        <h2>Opiniões do produto</h2>
+        <div class="media-nota">4,8</div>
+        <div class="estrelas-nota">★★★★☆</div>
+        <div class="total-avaliacoes">5.335 avaliações</div>
+      </div>
+
+      <ul class="distribuicao-estrelas">
+        <li><span>5★</span><div class="barra"><div class="preenchimento" style="width: 90%;"></div></div></li>
+        <li><span>4★</span><div class="barra"><div class="preenchimento" style="width: 60%;"></div></div></li>
+        <li><span>3★</span><div class="barra"><div class="preenchimento" style="width: 30%;"></div></div></li>
+        <li><span>2★</span><div class="barra"><div class="preenchimento" style="width: 10%;"></div></div></li>
+        <li><span>1★</span><div class="barra"><div class="preenchimento" style="width: 4%;"></div></div></li>
+      </ul>
+    </div>
+
+    <!-- Subnotas -->
+    <ul class="rating-list">
+      <li><span class="label">Qualidade da imagem:</span> <span class="stars">★★★★★</span><span class="value">4.7</span></li>
+      <li><span class="label">Custo-benefício:</span> <span class="stars">★★★★☆</span><span class="value">4.6</span></li>
+      <li><span class="label">Qualidade do som:</span> <span class="stars">★★★★☆</span><span class="value">4.5</span></li>
+      <li><span class="label">Facilidade de uso:</span> <span class="stars">★★★★☆</span><span class="value">4.6</span></li>
+    </ul>
+
+    <!-- Comentários -->
+    <div class="comentarios">
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Ana Paula</div>
+          <div class="estrelas">★★★★★</div>
+          <div class="texto">
+            Gente ameii! vale muito apena ainda mais pra quem não tem televisão.
+          </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto1.jpeg" alt="Foto do Produto 1" />
+            <img src="assets/comentario-foto2.jpeg" alt="Foto do Produto 2" />
+          </div>
+        </div>
+      </article>
+
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Carlos Eduardo</div>
+          <div class="estrelas">★★★★☆</div>
+          <div class="texto">
+            O  som é baixo ,nada que uma caixa de som não resolva. Mais custo beneficio é bom , satisfeito com o produto.
+         </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto3.jpeg" alt="Foto do Produto 3" />
+          </div>
+        </div>
+      </article>
+
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Luciana" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Luciana Mendes</div>
+          <div class="estrelas">★★★★★</div>
+          <div class="texto">
+            Excelente produto, imagem ótima, podem comprar sem medo.
+           </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto4.jpeg" alt="Foto do Produto 4" />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Modal para imagem ampliada -->
+<div class="photo-modal" id="comentarioModal">
+  <div class="photo-modal-content">
+    <img id="comentarioModalImage" src="" alt="Imagem Ampliada" />
+    <button class="close-btn" id="comentarioModalClose">&times;</button>
+  </div>
+</div>
+
+<script src="opinions.js"></script>
+
+</body>
+</html>
