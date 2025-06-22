@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
     blocoFrete.innerHTML = `
       <div class="frete-calc">
         <p>Calcule seu frete</p>
-        <a href="cep.html" class="btn-frete">Informar CEP</a>
+        <a href="cep.html" class="link-pix">Informar CEP</a>
       </div>
     `;
   }
