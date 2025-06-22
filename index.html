@@ -273,13 +273,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => console.error("Erro ao carregar opiniões:", error));
 </script>
-  <div id="footer-container"></div>
-  <script src="frete.js"></script>
-
+  
   <div id="sugestoes-container"></div>
 <script src="sugestoes.js"></script>
 
-<script>
+  
+  <div id="footer-container"></div>
+  <script src="frete.js"></script>
+
+  <script>
   fetch('footer.html')
     .then(response => response.text())
     .then(data => {
