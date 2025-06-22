@@ -1,6 +1,4 @@
-// opinions.js
-window.addEventListener('DOMContentLoaded', () => {
-  // Ativa clique nas imagens dos comentários
+function ativarModalFotosComentarios() {
   document.querySelectorAll(".comentario-fotos img").forEach(img => {
     img.addEventListener("click", () => {
       const lightbox = document.createElement('div');
@@ -30,4 +28,4 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-});
+}
