@@ -87,10 +87,23 @@
           <option>1 unidade</option>
         </select>
       </div>
+      <button class="btn-comprar" onclick="iniciarCompra()">Comprar agora</button>
+
+<script>
+function iniciarCompra() {
+  // Salva as informações do produto no localStorage
+  localStorage.setItem("paginaPagamento", "pix.html"); // <- aqui está o nome correto para o produto do index
+  localStorage.setItem("precoUnitario", "103.95"); // use ponto, não vírgula
+  localStorage.setItem("qtdeProduto", "1");
+  localStorage.setItem("nomeProduto", "Projetor Hy300 Portátil");
+
+  // Redireciona para a página de checkout
+  window.location.href = "checkout.html";
+}
+</script>
       
       
-      <button class="btn-comprar" onclick="window.location.href='checkout.html'">Comprar agora</button>
-    </section>
+        </section>
 
     <section class="descricao">
       <h2>Descrição do produto</h2>
