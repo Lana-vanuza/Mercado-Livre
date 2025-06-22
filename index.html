@@ -274,10 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => console.error("Erro ao carregar opiniões:", error));
 </script>
   
-  <div id="sugestoes-container"></div>
-<script src="sugestoes.js"></script>
-
-  <script>
+    <script>
   const verMaisBtn = document.getElementById("verMaisBtn");
   const desc = document.querySelector(".descricao-limitada");
 
@@ -286,6 +283,9 @@ document.addEventListener("DOMContentLoaded", () => {
     verMaisBtn.textContent = desc.classList.contains("expandido") ? "Ver menos" : "Ver mais";
   });
   </script>
+  
+  <div id="sugestoes-container"></div>
+<script src="sugestoes.js"></script>
 
   <div id="footer-container"></div>
   <script src="frete.js"></script>
