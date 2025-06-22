@@ -33,13 +33,16 @@
 }
 
 .produto-sugerido img {
-  width: 80px !important; /* <-- aqui você ajusta o tamanho */
+  width: 100%;
+  max-width: 80px;
+  max-height: 80px;
   height: auto;
   object-fit: contain;
   border-radius: 4px;
   display: block;
   margin: 0 auto 8px;
 }
+
 
 .produto-sugerido .nome {
   font-size: 0.9rem;
