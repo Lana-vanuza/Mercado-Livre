@@ -71,3 +71,10 @@
   color: #00a650;
   font-size: 1rem;
 }
+
+a.produto-sugerido {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
