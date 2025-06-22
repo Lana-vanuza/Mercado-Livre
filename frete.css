@@ -13,18 +13,4 @@
   color: #00a650;
 }
 
-.frete-container .btn-frete {
-  background-color: #3483fa;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 8px;
-  transition: background-color 0.3s ease;
-}
 
-.frete-container .btn-frete:hover {
-  background-color: #2769c6;
-}
