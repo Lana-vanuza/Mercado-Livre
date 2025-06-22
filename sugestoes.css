@@ -1,3 +1,13 @@
+/* Container principal das páginas CEP e CHECKOUT */
+body.sugestoes-page main.sugestoes-container {
+  max-width: 420px;
+  margin: 40px auto 60px auto;
+  padding: 20px 20px 30px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}  
 .sugestoes-container {
   margin: 40px 20px;
   background: #fff;
