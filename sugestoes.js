@@ -1,7 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const container = document.createElement('div');
-  container.id = 'sugestoes-container';
-  document.body.appendChild(container);
+  const container = document.getElementById('sugestoes-container'); // usa o que já existe no HTML
 
   fetch('sugestoes.html')
     .then(response => response.text())
