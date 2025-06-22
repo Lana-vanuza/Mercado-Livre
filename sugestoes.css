@@ -1,11 +1,9 @@
 .sugestoes-container {
-  margin: 40px 0;
+  margin: 40px 20px;
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  max-width: 100%;
-  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .sugestoes-container h2 {
@@ -22,17 +20,18 @@
 }
 
 .produto-sugerido {
-  min-width: 140px;
+  min-width: 150px;
   background: #fafafa;
   border: 1px solid #eee;
   border-radius: 6px;
   padding: 10px;
   flex-shrink: 0;
-  text-align: left;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.03);
 }
 
 .produto-sugerido img {
   width: 100%;
+  height: auto;
   border-radius: 4px;
 }
 
