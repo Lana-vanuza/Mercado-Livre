@@ -365,13 +365,15 @@
     });
 
     function escolherPagamento(tipo) {
-      fecharPopupPagamento();
-      if (tipo === "pix") {
-        window.location.href = "pix.html";
-      } else {
-        window.location.href = "em-breve.html";
-      }
-    }
+  fecharPopupPagamento();
+  if (tipo === "pix") {
+    const destino = localStorage.getItem("paginaPagamento") || "pix.html";
+    window.location.href = destino;
+  } else {
+    window.location.href = "em-breve.html";
+  }
+}
+
 
     function fecharPopupPagamento() {
       document.getElementById("popup-pagamento").style.display = "none";
