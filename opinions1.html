@@ -89,14 +89,63 @@
   </div>
 </section>
 
-<!-- Modal para imagem ampliada -->
-<div class="photo-modal" id="comentarioModal">
-  <div class="photo-modal-content">
-    <img id="comentarioModalImage" src="" alt="Imagem Ampliada" />
-    <button class="close-btn" id="comentarioModalClose">&times;</button>
-  </div>
-</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const imagens = [
+    'assets/comentario-foto1.jpeg',
+    'assets/comentario-foto2.jpeg',
+    'assets/comentario-foto3.jpeg',
+    'assets/comentario-foto4.jpeg'
+  ];
 
+  let currentImageIndex = 0;
+  const mainImage = document.getElementById('mainImage');
+
+  function trocarImagem(index) {
+    mainImage.src = imagens[index];
+    currentImageIndex = index;
+
+    document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+    if (document.querySelectorAll('.dot')[index]) {
+      document.querySelectorAll('.dot')[index].classList.add('active');
+    }
+  }
+
+  // Abrir imagem ampliada ao clicar na imagem principal
+  mainImage.addEventListener('click', () => {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.style.position = 'fixed';
+    lightbox.style.top = 0;
+    lightbox.style.left = 0;
+    lightbox.style.width = '100vw';
+    lightbox.style.height = '100vh';
+    lightbox.style.background = 'rgba(0,0,0,0.8)';
+    lightbox.style.display = 'flex';
+    lightbox.style.justifyContent = 'center';
+    lightbox.style.alignItems = 'center';
+    lightbox.style.zIndex = 1000;
+
+    const img = document.createElement('img');
+    img.src = imagens[currentImageIndex];
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.borderRadius = '10px';
+
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    // Fecha o modal ao clicar fora da imagem
+    lightbox.addEventListener('click', () => {
+      document.body.removeChild(lightbox);
+    });
+  });
+
+  // Inicializa com a primeira imagem
+  trocarImagem(0);
+});
+</script>
+  
 <script src="opinions1.js"></script>
 
 </body>
