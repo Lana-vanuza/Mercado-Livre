@@ -65,7 +65,21 @@
         </select>
       </div>
 
-      <button class="btn-comprar" onclick="window.location.href='checkout.html'">Comprar agora</button>
+      <button class="btn-comprar" onclick="iniciarCompra()">Comprar agora</button>
+
+<script>
+function iniciarCompra() {
+  // Salva as informações do produto no localStorage
+  localStorage.setItem("paginaPagamento", "pix1.html");
+  localStorage.setItem("precoUnitario", "79,90");
+  localStorage.setItem("qtdeProduto", "1");
+  localStorage.setItem("nomeProduto", "Copo Stanley Térmico");
+
+  // Redireciona para a página de checkout
+  window.location.href = "checkout.html";
+}
+</script>
+      
     </section>
 
     <section class="descricao">
