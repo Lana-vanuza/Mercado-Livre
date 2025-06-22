@@ -16,9 +16,11 @@
 
 .sugestoes-lista {
   display: flex;
+  flex-wrap: nowrap;
   gap: 16px;
   overflow-x: auto;
   padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
 }
 
 .produto-sugerido {
@@ -30,7 +32,9 @@
   flex-shrink: 0;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.03);
   text-align: center;
+  scroll-snap-align: start;
 }
+
 
 .produto-sugerido img {
   width: 100%;
