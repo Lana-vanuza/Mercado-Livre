@@ -112,27 +112,29 @@ function iniciarCompra() {
       link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
     }
   </script>
+<script>
+  // Função precisa estar fora para o HTML conseguir chamar
+  function trocarImagem(index) {
+    const imagens = [
+      'assets/produto-teste1.jpeg',
+      'assets/produto-teste2.jpeg',
+      'assets/produto-teste3.jpeg',
+      'assets/produto-teste4.jpeg'
+    ];
+    const mainImage = document.getElementById('mainImage');
+    mainImage.src = imagens[index];
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const imagens = [
-        'assets/produto-teste1.jpeg',
-        'assets/produto-teste2.jpeg',
-        'assets/produto-teste3.jpeg',
-        'assets/produto-teste4.jpeg'
-      ];
-      let currentImageIndex = 0;
-      const mainImage = document.getElementById('mainImage');
+    document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+    document.querySelectorAll('.dot')[index].classList.add('active');
+  }
 
-      function trocarImagem(index) {
-        mainImage.src = imagens[index];
-        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
-        document.querySelectorAll('.dot')[index].classList.add('active');
-      }
+  // Inicia com a primeira imagem ao carregar a página
+  document.addEventListener("DOMContentLoaded", () => {
+    trocarImagem(0);
+  });
+</script>
 
-      trocarImagem(0);
-    });
-  </script>
+  
 
   <div id="opinioes-container"></div>
   <script>
