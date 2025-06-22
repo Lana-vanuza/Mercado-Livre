@@ -10,16 +10,16 @@ body.em-breve-page main.erro-container {
 }  
 
 .icone-erro {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
 }
 
 .icone-gear {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 20px;
-  animation: girar 2s linear infinite;
+  animation: girar 3s linear infinite;
 }
 
 .icon {
