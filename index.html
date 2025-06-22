@@ -277,7 +277,16 @@ document.addEventListener("DOMContentLoaded", () => {
   <div id="sugestoes-container"></div>
 <script src="sugestoes.js"></script>
 
-  
+  <script>
+  const verMaisBtn = document.getElementById("verMaisBtn");
+  const desc = document.querySelector(".descricao-limitada");
+
+  verMaisBtn.addEventListener("click", () => {
+    desc.classList.toggle("expandido");
+    verMaisBtn.textContent = desc.classList.contains("expandido") ? "Ver menos" : "Ver mais";
+  });
+  </script>
+
   <div id="footer-container"></div>
   <script src="frete.js"></script>
 
@@ -289,16 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 </script>
 <link rel="stylesheet" href="footer.css" />
-  
-  <script>
-  const verMaisBtn = document.getElementById("verMaisBtn");
-  const desc = document.querySelector(".descricao-limitada");
-
-  verMaisBtn.addEventListener("click", () => {
-    desc.classList.toggle("expandido");
-    verMaisBtn.textContent = desc.classList.contains("expandido") ? "Ver menos" : "Ver mais";
-  });
-  </script>
   
   
 </body>
