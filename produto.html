@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercado Livre</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="opinions.css?v=3">
+  <link rel="stylesheet" href="frete.css">
+  <!-- FontAwesome para ícones -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pVf8OfzHCp72/YbXCNcA9wIYkKZcu/tz/0v+ZosIm0x+TI/zWmOH6Gswb3IoNz5z2Ep+XNV7B+54ep2H+z+D0w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Meta Open Graph para redes sociais -->
+  <meta property="og:title" content="Mercado Livre - Os melhores produtos, com o melhor preço!" />
+  <meta property="og:description" content="Confira já o Projetor Hy300 Portátil e outras ofertas imperdíveis." />
+  <meta property="og:image" content="https://mercad.netlify.app/assets/logo.png" />
+  <meta property="og:url" content="https://mercad.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <!-- Meta Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mercado Livre - Os melhores produtos, com o melhor preço!" />
+  <meta name="twitter:description" content="Veja o Projetor Hy300 Portátil e muito mais em Mercado Livre!" />
+  <meta name="twitter:image" content="https://mercad.netlify.app/assets/logo.png" />
+</head>
+
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Logo LibreMerc" class="logo" />
+    <div class="header-center">
+      <input type="search" class="busca-input" placeholder="Buscar no Mercado Livre" />
+      <i class="fas fa-bars menu-icon"></i>
+      <i class="fas fa-shopping-cart cart-icon"></i>
+    </div>
+  </header>
+
+  <section class="cep-bar" id="cep-info">
+  <a href="cep.html" id="cep-link">
+    <i class="fas fa-map-marker-alt"></i> Informe seu CEP
+  </a>
+</section>
+
+
+  <main class="produto-container">
+    <section class="info-produto">
+      <div class="tag-mais-vendido">MAIS VENDIDO</div>
+      <div class="categoria">5° em Projetores e Telas</div>
+      <h1>Projetor Hy300 Portátil Branco 110v/220v 4k 1080p Cinema</h1>
+      <div class="avaliacao">
+        <span class="estrelas">★★★★★</span>
+        <span class="total">+10 mil vendidos</span>
+      </div>
+
+<!-- Galeria de imagens estilo Mercado Livre -->
+<section class="product-gallery">
+  <div class="main-image">
+    <img src="assets/produto-teste1.jpeg" alt="Galaxy A25" id="mainImage" />
+  </div>
+  <div class="dots-carousel">
+    <div class="dot active" onclick="trocarImagem(0)" role="button"></div>
+    <div class="dot" onclick="trocarImagem(1)" role="button"></div>
+    <div class="dot" onclick="trocarImagem(2)" role="button"></div>
+    <div class="dot" onclick="trocarImagem(3)" role="button"></div>
+  </div>
+</section>
+
+      <div class="oferta-dia">OFERTA DO DIA</div>
+
+      <div class="preco-detalhe">
+  <span class="preco-antigo">de R$ 227,95</span>
+  <span class="preco">por R$ 103,95</span>
+  <small class="parcelas">Promoção válida para pagamento via Pix</small>
+      </div>
+      
+      <div id="bloco-frete" class="frete-container">
+  <!-- Conteúdo será preenchido via JS -->
+      </div>
+
+      <div class="qtde">
+        <label for="qtde-select">Quantidade:</label>
+        <select id="qtde-select">
+          <option>1 unidade</option>
+        </select>
+      </div>
+      
+      
+      <button class="btn-comprar" onclick="window.location.href='checkout.html'">Comprar agora</button>
+    </section>
+
+    <section class="descricao">
+      <h2>Descrição do produto</h2>
+      <div class="descricao-limitada">
+      <p>‎Experimente a próxima geração de entretenimento em casa com o incrível Projetor HY300. Com recursos de ponta e tecnologia avançada, este projetor redefine a maneira como você vivencia filmes, jogos e muito mais. Seja transportado para um mundo de imagens nítidas e vibrantes, tudo a partir do conforto do seu espaço.</p>
+‎<p><strong>ESPECIFICAÇÕES:</strong></p>
+<p>Modelo do produto: HY300 Pro</p>
+<p>Sistema: Android 11</p>
+<p>Processador: Allwinner H713</p>
+<p>GPU: Mali-G31 supports OpenGL ES3.2, Vulkan 1.1, e OpenCL2.0</p>
+<p>Memória RAM: 1G</p>
+<p>Armazenamento (ROM): 8G</p>
+<p>WI-FI: AW869A -- Banda dupla, + BT5.0 WiFi6 Especificação do módulo</p>
+<p>Saídas: HDMI</p>
+<p>Resolução nativa: 1280×720P</p>
+<p>Temperatura cor: ± 8000K (1000K)</p>
+<p>Brilho (lúmens): 200 lúmens ANSI</p>
+<p>Relação do contraste: 1500:1</p>
+<p>Proporção: 16:9 & 4:3</p>
+<p>Língua: Suporte para vários idiomas</p>
+<p>Modo do ajuste: Foco manual</p>
+<p>Projeção Distância: 1,2–4M</p>
+<p>Distância projeção ideal: 1,68 M</p>
+<p>Tamanho projeção: 40–130 polegadas</p>
+<p>Ruído da fan: &lt;25 dB</p>
+<p>Tensão De Trabalho (V): AC90-260V / 50-60MHz</p>
+<p>Interface: USB × 1, HDMI × 1, ÁUDIO × 1</p>
+<p>Arquivo Áudio: MP3 / WMA / ACC</p>
+<p>Arquivo Imagem: JPG, BMP, PNG (suporte imagem escala)</p>
+<p>Arquivo Vídeo: Decodificação de formato completo, incluindo HEVC/VP9/AVS2/AVC 4K @ 30fps e MPEG1/MPEG2/AV1 1080p/60fps</p>
+<p>Cor: Branco</p>
+<p>Fonte de energia: 110–220V</p>
+<p>WI-FI: Sim</p>
+<p>Tamanho do produto: Diâmetro 100.8 × 103.5 mm</p>
+<p>Peso (kg): 0,5 quilogramas</p>
+
+<p><strong>CONTEÚDO DA EMBALAGEM:</strong></p>
+<p>- Projetor</p>
+<p>- Manual do usuário</p>
+<p>- Cabo de alimentação</p>
+<p>- Controle remoto</p>
+<p>- Adaptador</p>
+
+<p><strong>Garantia do vendedor:</strong> 30 dias</p>
+      </div>
+
+<button id="verMaisBtn">Ver descrição completa</button>
+    </section>
+  </main>
+
+  <script>
+  const cep = localStorage.getItem("cep");
+  const cidade = localStorage.getItem("cidade");
+
+  if (cep && cidade) {
+    const link = document.getElementById("cep-link");
+    link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
+  }
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const imagens = [
+    'assets/produto-a.jpeg',
+    'assets/produto-b.jpeg',
+    'assets/produto-c.jpeg',
+    'assets/produto-d.jpeg'
+  ];
+
+  let currentImageIndex = 0;
+  let startX = 0;
+
+  const mainImage = document.getElementById('mainImage');
+
+  function trocarImagem(index) {
+    const lightboxImg = document.querySelector('#lightbox img');
+    
+    mainImage.classList.remove('fade-in');
+    mainImage.classList.add('fade-out');
+
+    if (lightboxImg) {
+      lightboxImg.classList.remove('fade-in');
+      lightboxImg.classList.add('fade-out');
+    }
+
+    setTimeout(() => {
+      mainImage.src = imagens[index];
+      mainImage.onload = () => {
+        mainImage.classList.remove('fade-out');
+        mainImage.classList.add('fade-in');
+      };
+
+      if (lightboxImg) {
+        lightboxImg.src = imagens[index];
+        lightboxImg.onload = () => {
+          lightboxImg.classList.remove('fade-out');
+          lightboxImg.classList.add('fade-in');
+        };
+      }
+    }, 100);
+    currentImageIndex = index;
+
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+  }
+
+  function handleSwipe(start, end) {
+    const deltaX = start - end;
+    if (Math.abs(deltaX) < 50) return;
+
+    if (deltaX > 0) {
+      currentImageIndex = (currentImageIndex + 1) % imagens.length;
+    } else {
+      currentImageIndex = (currentImageIndex - 1 + imagens.length) % imagens.length;
+    }
+
+    trocarImagem(currentImageIndex);
+  }
+
+  mainImage.addEventListener('click', function () {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.style.position = 'fixed';
+    lightbox.style.top = 0;
+    lightbox.style.left = 0;
+    lightbox.style.width = '100vw';
+    lightbox.style.height = '100vh';
+    lightbox.style.background = 'rgba(0,0,0,0.8)';
+    lightbox.style.display = 'flex';
+    lightbox.style.justifyContent = 'center';
+    lightbox.style.alignItems = 'center';
+    lightbox.style.zIndex = 1000;
+
+    const img = document.createElement('img');
+    img.src = imagens[currentImageIndex];
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.borderRadius = '10px';
+    img.style.transition = 'opacity 0.3s ease-in-out';
+    img.style.opacity = 1;
+
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    img.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+    img.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+    img.addEventListener('mousedown', (e) => startX = e.clientX);
+    img.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
+
+    lightbox.addEventListener('click', () => {
+      document.body.removeChild(lightbox);
+    });
+  });
+
+  mainImage.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+  mainImage.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+  mainImage.addEventListener('mousedown', (e) => startX = e.clientX);
+  mainImage.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
+
+  trocarImagem(0); // ATIVA A IMAGEM INICIAL
+});
+                             </script>
+  
+  
+      
+<!-- Container onde as opiniões serão carregadas -->
+<div id="opinioes-container"></div>
+
+<!-- Script que carrega o opinions.html dinamicamente -->
+<script>
+  fetch("opinions.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("opinioes-container").innerHTML = html;
+
+      // Recarrega o script JS após inserir o HTML
+      const script = document.createElement("script");
+      script.src = "opinions.js";
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error("Erro ao carregar opiniões:", error));
+</script>
+  
+    <script>
+  const verMaisBtn = document.getElementById("verMaisBtn");
+  const desc = document.querySelector(".descricao-limitada");
+
+  verMaisBtn.addEventListener("click", () => {
+    desc.classList.toggle("expandido");
+    verMaisBtn.textContent = desc.classList.contains("expandido") ? "Ver menos" : "Ver mais";
+  });
+  </script>
+  
+  <div id="sugestoes-container"></div>
+<script src="sugestoes.js"></script>
+
+  <div id="footer-container"></div>
+  <script src="frete.js"></script>
+
+  <script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    });
+</script>
+<link rel="stylesheet" href="footer.css" />
+  
+  
+</body>
+  </html>
