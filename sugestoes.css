@@ -40,10 +40,14 @@ body.sugestoes-page main.sugestoes-container {
 }
 
 .produto-sugerido img {
-  width: 40%;
-  height: auto;
-  border-radius: 4px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 6px;
 }
+
 
 .produto-sugerido .nome {
   font-size: 0.9rem;
