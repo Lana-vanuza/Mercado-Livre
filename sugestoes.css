@@ -14,13 +14,20 @@
   color: #333;
 }
 
-.sugestoes-lista {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
+.sugestoes-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.sugestoes-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.sugestoes-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
 }
 
 .produto-sugerido {
