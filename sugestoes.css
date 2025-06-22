@@ -72,9 +72,8 @@
   font-size: 1rem;
 }
 
-a.produto-sugerido {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+.produto-sugerido a {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block !important;
 }
-
