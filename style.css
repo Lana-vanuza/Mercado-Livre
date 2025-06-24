@@ -344,6 +344,7 @@ body.pix-page header {
 
 body.cep-page header .logo,
 body.checkout-page header .logo,
+body.produto-page header .logo,
 body.pix-page header .logo {
   height: 40px;
   max-height: 50px;
