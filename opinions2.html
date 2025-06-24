@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comentários do Produto | LibreMerc</title>
+  <link rel="stylesheet" href="opinions.css" />
+</head>
+<body>
+
+<section id="comments-section">
+  <div class="opiniao-container">
+    <!-- Bloco de Avaliação Geral -->
+    <div class="avaliacao-geral-container">
+      <div class="nota-geral">
+        <h2>Opiniões do produto</h2>
+        <div class="media-nota">4,9</div>
+        <div class="estrelas-nota">★★★★★</div>
+        <div class="total-avaliacoes">7.814 avaliações</div>
+      </div>
+
+      <ul class="distribuicao-estrelas">
+        <li><span>5★</span><div class="barra"><div class="preenchimento" style="width: 92%;"></div></div></li>
+        <li><span>4★</span><div class="barra"><div class="preenchimento" style="width: 40%;"></div></div></li>
+        <li><span>3★</span><div class="barra"><div class="preenchimento" style="width: 8%;"></div></div></li>
+        <li><span>2★</span><div class="barra"><div class="preenchimento" style="width: 2%;"></div></div></li>
+        <li><span>1★</span><div class="barra"><div class="preenchimento" style="width: 1%;"></div></div></li>
+      </ul>
+    </div>
+
+    <!-- Subnotas -->
+    <ul class="rating-list">
+      <li><span class="label">usto-benefício:</span> <span class="stars">★★★★★</span><span class="value">4.9</span></li>
+      <li><span class="label">Fácil de limpar:</span> <span class="stars">★★★★★</span><span class="value">4.8</span></li>
+      <li><span class="label">Praticidade:</span> <span class="stars">★★★★★</span><span class="value">4.8</span></li>
+      <li><span class="label">Velocidade de secagem:</span> <span class="stars">★★★★★</span><span class="value">4.9</span></li>
+    </ul>
+
+    <!-- Comentários -->
+    <div class="comentarios">
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Carol" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Carol Pereira</div>
+          <div class="estrelas">★★★★★</div>
+          <div class="texto">
+            Produto bom pena que as escovas são pequenas mas gostei pra limpar o rejunte da cozinha e as paredes. E a velocidade poderia ser mais potente. Mas gostei.
+          </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto5.jpeg" alt="Foto do Copo" />
+          </div>
+        </div>
+      </article>
+
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Elena" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Elena Rosa</div>
+          <div class="estrelas">★★★★★</div>
+          <div class="texto">
+            Imaginei que ele girasse mais rápido, mas limpa super bem os vidros e os cantinhos do box do banheiro. Recomendo.
+          </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto6.jpeg" alt="Copo Stanley na Praia" />
+          </div>
+        </div>
+      </article>
+
+      <article class="comentario">
+        <div class="foto">
+          <img src="https://randomuser.me/api/portraits/women/60.jpg" alt="Tati" />
+        </div>
+        <div class="conteudo">
+          <div class="nome">Tati Costa</div>
+          <div class="estrelas">★★★★☆</div>
+          <div class="texto">
+            Superou todas as minhas expectativas. Top de verdade.
+          </div>
+          <div class="comentario-fotos">
+            <img src="assets/comentario-foto7.jpeg" alt="Foto Tampa" />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const img = document.querySelector('img[src="assets/comentario-foto1.jpeg"]');
+
+  if (img) {
+    img.addEventListener("click", () => {
+      const lightbox = document.createElement("div");
+      lightbox.style.position = "fixed";
+      lightbox.style.top = 0;
+      lightbox.style.left = 0;
+      lightbox.style.width = "100vw";
+      lightbox.style.height = "100vh";
+      lightbox.style.background = "rgba(0,0,0,0.85)";
+      lightbox.style.display = "flex";
+      lightbox.style.justifyContent = "center";
+      lightbox.style.alignItems = "center";
+      lightbox.style.zIndex = 9999;
+
+      const imagemAmpliada = document.createElement("img");
+      imagemAmpliada.src = "assets/comentario-foto1.jpeg";
+      imagemAmpliada.style.maxWidth = "90vw";
+      imagemAmpliada.style.maxHeight = "80vh";
+      imagemAmpliada.style.borderRadius = "12px";
+      imagemAmpliada.style.boxShadow = "0 4px 20px rgba(0,0,0,0.5)";
+
+      lightbox.appendChild(imagemAmpliada);
+      document.body.appendChild(lightbox);
+
+      lightbox.addEventListener("click", () => {
+        document.body.removeChild(lightbox);
+      });
+    });
+  } else {
+    console.warn("Imagem comentario-foto5.jpeg não encontrada no DOM.");
+  }
+});
+</script>
+  
+
+</body>
+            </html>
