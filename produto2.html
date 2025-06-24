@@ -32,11 +32,11 @@
   <main class="produto-container">
     <section class="info-produto">
       <div class="tag-mais-vendido">MAIS VENDIDO</div>
-      <div class="categoria">1º em Copos Térmicos</div>
-      <h1>Copo Térmico Stanley 473ml Verde</h1>
+      <div class="categoria">6º em Mop</div>
+      <h1>Escova De Limpeza Elétrica Multiuso Rotatória Magica Limpa Canto Friso Banheiro Cozinhha Esfregão Mop 9 Em 1 Bivolt</h1>
       <div class="avaliacao">
         <span class="estrelas">★★★★★</span>
-        <span class="total">+50 mil vendidos</span>
+        <span class="total">+10 mil vendidos</span>
       </div>
 
       <section class="product-gallery">
@@ -53,8 +53,8 @@
 
       <div class="oferta-dia">OFERTA DO DIA</div>
       <div class="preco-detalhe">
-        <span class="preco-antigo">de R$ 49,90</span>
-        <span class="preco">por R$ 9,90</span>
+        <span class="preco-antigo">de R$ 89,90</span>
+        <span class="preco">por R$ 49,90</span>
         <small class="parcelas">Promoção válida para pagamento via Pix</small>
       </div>
 
@@ -73,9 +73,9 @@
 function iniciarCompra() {
   // Salva as informações do produto no localStorage
   localStorage.setItem("paginaPagamento", "pix2.html");
-  localStorage.setItem("precoUnitario", "79,90");
+  localStorage.setItem("precoUnitario", "49,90");
   localStorage.setItem("qtdeProduto", "1");
-  localStorage.setItem("nomeProduto", "Copo Stanley Térmico");
+  localStorage.setItem("nomeProduto", "Escova elétrica de limpeza");
 
   // Redireciona para a página de checkout
   window.location.href = "checkout.html";
@@ -86,22 +86,33 @@ function iniciarCompra() {
 
     <section class="descricao">
       <h2>Descrição do produto</h2>
-      <div class="descricao-limitada">
-        <p>O Copo Térmico Stanley 473ml é ideal para manter sua bebida gelada por até 4 horas ou quente por até 45 minutos. Fabricado com a qualidade lendária da Stanley, ele é resistente, durável e perfeito para todas as ocasiões.</p>
-        <p><strong>CARACTERÍSTICAS:</strong></p>
-        <p>- Capacidade: 473 ml</p>
-        <p>- Mantém bebidas geladas por até 4 horas</p>
-        <p>- Parede dupla com isolamento a vácuo</p>
-        <p>- Aço inox 18/8 (não enferruja)</p>
-        <p>- Tampa com abertura fácil</p>
-        <p>- Livre de BPA</p>
-        <p>- Altura: 14 cm | Diâmetro: 8,5 cm</p>
-        <p>- Cor: Verde</p>
-        <p><strong>ITENS INCLUSOS:</strong></p>
-        <p>- 1 Copo Stanley 473ml</p>
-        <p>- 1 Tampa original</p>
-        <p><strong>Garantia do vendedor:</strong> 90 dias</p>
+      <div class="descricao-limitada"
+  <h2>Escova Elétrica de Limpeza 9 em 1</h2>
+  <p>Ideal para quem busca praticidade e eficiência na hora da faxina! A Escova Elétrica 9 em 1 é perfeita para limpar azulejos, pia, rejuntes, box, utensílios de cozinha e muito mais, sem esforço. Com design ergonômico e motor potente, ela facilita a limpeza dos cantinhos mais difíceis.</p>
+
+  <ul>
+    <li><strong>Multifuncional:</strong> acompanha 9 acessórios para diferentes superfícies e tipos de sujeira.</li>
+    <li><strong>À prova d’água:</strong> pode ser usada com produtos de limpeza e até dentro do box.</li>
+    <li><strong>Portátil:</strong> funciona com pilhas AA (não inclusas), sem fios nem tomadas.</li>
+    <li><strong>Compacta e leve:</strong> cabe na mão e é fácil de guardar.</li>
+  </ul>
+
+  <h3>Inclui 9 acessórios:</h3>
+  <ul>
+    <li>🌀 <strong>Escova Dura:</strong> ideal para rejuntes e sujeiras pesadas</li>
+    <li>🧽 <strong>Esponja Macia:</strong> para vidro, espelhos e inox</li>
+    <li>🧼 <strong>Disco de Feltro:</strong> para superfícies sensíveis e delicadas</li>
+    <li>🧴 <strong>Escova Média:</strong> ideal para pias, torneiras e azulejos</li>
+    <li>🔘 <strong>Escova de Precisão:</strong> para cantos e frestas</li>
+    <li>📐 <strong>Escova Angular:</strong> para bordas e rodapés</li>
+    <li>🧲 <strong>Adaptador com Velcro:</strong> troca rápida das esponjas</li>
+    <li>🌀 <strong>Disco Polidor:</strong> brilho em metais e superfícies planas</li>
+    <li>📦 <strong>Suporte de Fixação:</strong> para armazenar com organização</li>
+  </ul>
+
+  <p>Faça a faxina render e deixe tudo brilhando com muito menos esforço. Perfeita para uso doméstico e profissional.</p>
       </div>
+        
       <button id="verMaisBtn">Ver descrição completa</button>
     </section>
   </main>
