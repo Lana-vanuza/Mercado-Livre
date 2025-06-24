@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copo Térmico Stanley 473ml</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="opinions.css?v=3">
+  <link rel="stylesheet" href="frete.css">
+  <link rel="stylesheet" href="footer.css" />
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+    <img src="assets/logo.png" alt="Logo LibreMerc" class="logo" />
+    </a>
+    <div class="header-center">
+      <input type="search" class="busca-input" placeholder="Buscar no Mercado Livre" />
+      <i class="fas fa-bars menu-icon"></i>
+      <i class="fas fa-shopping-cart cart-icon"></i>
+    </div>
+  </header>
+
+  <section class="cep-bar" id="cep-info">
+    <a href="cep.html" id="cep-link">
+      <i class="fas fa-map-marker-alt"></i> Informe seu CEP
+    </a>
+  </section>
+
+  <main class="produto-container">
+    <section class="info-produto">
+      <div class="tag-mais-vendido">MAIS VENDIDO</div>
+      <div class="categoria">1º em Copos Térmicos</div>
+      <h1>Copo Térmico Stanley 473ml Verde</h1>
+      <div class="avaliacao">
+        <span class="estrelas">★★★★★</span>
+        <span class="total">+50 mil vendidos</span>
+      </div>
+
+      <section class="product-gallery">
+        <div class="main-image">
+          <img src="assets/produto-teste5.jpeg" alt="Copo Stanley" id="mainImage" />
+        </div>
+        <div class="dots-carousel">
+          <div class="dot active" onclick="trocarImagem(0)" role="button"></div>
+          <div class="dot" onclick="trocarImagem(1)" role="button"></div>
+          <div class="dot" onclick="trocarImagem(2)" role="button"></div>
+          <div class="dot" onclick="trocarImagem(3)" role="button"></div>
+        </div>
+      </section>
+
+      <div class="oferta-dia">OFERTA DO DIA</div>
+      <div class="preco-detalhe">
+        <span class="preco-antigo">de R$ 49,90</span>
+        <span class="preco">por R$ 9,90</span>
+        <small class="parcelas">Promoção válida para pagamento via Pix</small>
+      </div>
+
+      <div id="bloco-frete" class="frete-container"></div>
+
+      <div class="qtde">
+        <label for="qtde-select">Quantidade:</label>
+        <select id="qtde-select">
+          <option>1 unidade</option>
+        </select>
+      </div>
+
+      <button class="btn-comprar" onclick="iniciarCompra()">Comprar agora</button>
+
+<script>
+function iniciarCompra() {
+  // Salva as informações do produto no localStorage
+  localStorage.setItem("paginaPagamento", "pix2.html");
+  localStorage.setItem("precoUnitario", "79,90");
+  localStorage.setItem("qtdeProduto", "1");
+  localStorage.setItem("nomeProduto", "Copo Stanley Térmico");
+
+  // Redireciona para a página de checkout
+  window.location.href = "checkout.html";
+}
+</script>
+      
+    </section>
+
+    <section class="descricao">
+      <h2>Descrição do produto</h2>
+      <div class="descricao-limitada">
+        <p>O Copo Térmico Stanley 473ml é ideal para manter sua bebida gelada por até 4 horas ou quente por até 45 minutos. Fabricado com a qualidade lendária da Stanley, ele é resistente, durável e perfeito para todas as ocasiões.</p>
+        <p><strong>CARACTERÍSTICAS:</strong></p>
+        <p>- Capacidade: 473 ml</p>
+        <p>- Mantém bebidas geladas por até 4 horas</p>
+        <p>- Parede dupla com isolamento a vácuo</p>
+        <p>- Aço inox 18/8 (não enferruja)</p>
+        <p>- Tampa com abertura fácil</p>
+        <p>- Livre de BPA</p>
+        <p>- Altura: 14 cm | Diâmetro: 8,5 cm</p>
+        <p>- Cor: Verde</p>
+        <p><strong>ITENS INCLUSOS:</strong></p>
+        <p>- 1 Copo Stanley 473ml</p>
+        <p>- 1 Tampa original</p>
+        <p><strong>Garantia do vendedor:</strong> 90 dias</p>
+      </div>
+      <button id="verMaisBtn">Ver descrição completa</button>
+    </section>
+  </main>
+
+  <script>
+    const cep = localStorage.getItem("cep");
+    const cidade = localStorage.getItem("cidade");
+    if (cep && cidade) {
+      const link = document.getElementById("cep-link");
+      link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
+    }
+  </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const imagens = [
+    'assets/produto-teste5.jpeg',
+    'assets/produto-teste6.jpeg',
+    'assets/produto-teste7.jpeg',
+    'assets/produto-teste8.jpeg'
+  ];
+
+  let currentImageIndex = 0;
+  let startX = 0;
+  const mainImage = document.getElementById('mainImage');
+
+  function trocarImagem(index) {
+    const lightboxImg = document.querySelector('#lightbox img');
+
+    mainImage.classList.remove('fade-in');
+    mainImage.classList.add('fade-out');
+
+    if (lightboxImg) {
+      lightboxImg.classList.remove('fade-in');
+      lightboxImg.classList.add('fade-out');
+    }
+
+    setTimeout(() => {
+      mainImage.src = imagens[index];
+      mainImage.onload = () => {
+        mainImage.classList.remove('fade-out');
+        mainImage.classList.add('fade-in');
+      };
+
+      if (lightboxImg) {
+        lightboxImg.src = imagens[index];
+        lightboxImg.onload = () => {
+          lightboxImg.classList.remove('fade-out');
+          lightboxImg.classList.add('fade-in');
+        };
+      }
+    }, 100);
+
+    currentImageIndex = index;
+    document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+    if (document.querySelectorAll('.dot')[index]) {
+      document.querySelectorAll('.dot')[index].classList.add('active');
+    }
+  }
+
+  function handleSwipe(start, end) {
+    const deltaX = start - end;
+    if (Math.abs(deltaX) < 50) return;
+
+    if (deltaX > 0) {
+      currentImageIndex = (currentImageIndex + 1) % imagens.length;
+    } else {
+      currentImageIndex = (currentImageIndex - 1 + imagens.length) % imagens.length;
+    }
+    trocarImagem(currentImageIndex);
+  }
+
+  mainImage.addEventListener('click', function () {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.style.position = 'fixed';
+    lightbox.style.top = 0;
+    lightbox.style.left = 0;
+    lightbox.style.width = '100vw';
+    lightbox.style.height = '100vh';
+    lightbox.style.background = 'rgba(0,0,0,0.8)';
+    lightbox.style.display = 'flex';
+    lightbox.style.justifyContent = 'center';
+    lightbox.style.alignItems = 'center';
+    lightbox.style.zIndex = 1000;
+
+    const img = document.createElement('img');
+    img.src = imagens[currentImageIndex];
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.borderRadius = '10px';
+    img.style.transition = 'opacity 0.3s ease-in-out';
+    img.style.opacity = 1;
+
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    img.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+    img.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+    img.addEventListener('mousedown', (e) => startX = e.clientX);
+    img.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
+
+    lightbox.addEventListener('click', () => {
+      document.body.removeChild(lightbox);
+    });
+  });
+
+  // Swipe na imagem principal
+  mainImage.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+  mainImage.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+  mainImage.addEventListener('mousedown', (e) => startX = e.clientX);
+  mainImage.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
+
+  trocarImagem(0); // imagem inicial
+});
+</script>
+
+
+  <div id="opinioes-container"></div>
+  <script>
+    fetch("opinions2.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("opinioes-container").innerHTML = html;
+        const script = document.createElement("script");
+        script.src = "opinions2.js";
+        document.body.appendChild(script);
+      });
+  </script>
+
+  <script>
+    const verMaisBtn = document.getElementById("verMaisBtn");
+    const desc = document.querySelector(".descricao-limitada");
+    verMaisBtn.addEventListener("click", () => {
+      desc.classList.toggle("expandido");
+      verMaisBtn.textContent = desc.classList.contains("expandido") ? "Ver menos" : "Ver mais";
+    });
+  </script>
+
+  <div id="sugestoes-container"></div>
+  <script src="sugestoes2.js"></script>
+
+  <div id="footer-container"></div>
+  <script src="frete.js"></script>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      });
+  </script>
+</body>
+</html>
