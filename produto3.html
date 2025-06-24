@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lava louças portátil</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="opinions.css?v=3">
+  <link rel="stylesheet" href="frete.css">
+  <link rel="stylesheet" href="footer.css" />
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+    <img src="assets/logo.png" alt="Logo LibreMerc" class="logo" />
+    </a>
+    <div class="header-center">
+      <input type="search" class="busca-input" placeholder="Buscar no Mercado Livre" />
+      <i class="fas fa-bars menu-icon"></i>
+      <i class="fas fa-shopping-cart cart-icon"></i>
+    </div>
+  </header>
+
+  <section class="cep-bar" id="cep-info">
+    <a href="cep.html" id="cep-link">
+      <i class="fas fa-map-marker-alt"></i> Informe seu CEP
+    </a>
+  </section>
+
+  <main class="produto-container">
+    <section class="info-produto">
+      <div class="tag-mais-vendido">MAIS VENDIDO</div>
+      <div class="categoria">10º em Lava louças</div>
+      <h1>Lava louças portátil Praxis cor preto</h1>
+      <div class="avaliacao">
+        <span class="estrelas">★★★★★</span>
+        <span class="total">+6 mil vendidos</span>
+      </div>
+
+      <section class="product-gallery">
+        <div class="main-image">
+          <img src="assets/produto-teste9.jpeg" alt="Copo Stanley" id="mainImage" />
+        </div>
+        <div class="dots-carousel">
+          <div class="dot active" onclick="trocarImagem(0)" role="button"></div>
+          <div class="dot" onclick="trocarImagem(1)" role="button"></div>
+          <div class="dot" onclick="trocarImagem(2)" role="button"></div>
+          <div class="dot" onclick="trocarImagem(3)" role="button"></div>
+        </div>
+      </section>
+
+      <div class="oferta-dia">MEGA OFERTA</div>
+      <div class="preco-detalhe">
+        <span class="preco-antigo">de R$ 999,90</span>
+        <span class="preco">por R$ 499,90</span>
+        <small class="parcelas">Promoção válida para pagamento via Pix</small>
+      </div>
+
+      <div id="bloco-frete" class="frete-container"></div>
+
+      <div class="qtde">
+        <label for="qtde-select">Quantidade:</label>
+        <select id="qtde-select">
+          <option>1 unidade</option>
+        </select>
+      </div>
+
+      <button class="btn-comprar" onclick="iniciarCompra()">Comprar agora</button>
+
+<script>
+function iniciarCompra() {
+  // Salva as informações do produto no localStorage
+  localStorage.setItem("paginaPagamento", "pix3.html");
+  localStorage.setItem("precoUnitario", "499,90");
+  localStorage.setItem("qtdeProduto", "1");
+  localStorage.setItem("nomeProduto", "Lava louças portátil");
+
+  // Redireciona para a página de checkout
+  window.location.href = "checkout.html";
+}
+</script>
+      
+    </section>
+
+    <section class="descricao">
+      <h2>Descrição do produto</h2>
+      <div class="descricao-limitada"> 
+  <h1>Lava Louças Portátil Praxis 8 Programas – 3 Litros</h1>
+  <p>
+    Transforme sua cozinha com a <strong>Lava Louças Portátil Praxis</strong>, uma solução moderna, compacta e eficiente para facilitar seu dia a dia. Com 8 programas de lavagem e capacidade para até 3 litros, ela é ideal para quem busca praticidade sem abrir mão da tecnologia.
+  </p>
+
+  <h2>Inovação e tecnologia de ponta</h2>
+  <ul>
+    <li><strong>Pré-Lavagem:</strong> remove os resíduos mais difíceis antes da lavagem principal.</li>
+    <li><strong>Lavagem Express:</strong> ideal para limpeza rápida em momentos de pressa.</li>
+    <li><strong>Delicado:</strong> cuida de louças mais frágeis com total segurança.</li>
+    <li><strong>Lavagem ECO:</strong> economia de água e energia com eficiência máxima.</li>
+    <li><strong>Dia a Dia:</strong> limpeza prática e completa para uso diário.</li>
+    <li><strong>Lavagem Pesada:</strong> potência ideal para sujeiras difíceis e gorduras.</li>
+    <li><strong>Higienização de Embalagens:</strong> segurança para latas e Tetrapak.</li>
+    <li><strong>Higienização de Frutas e Legumes:</strong> alimentos limpos e livres de contaminantes.</li>
+  </ul>
+
+  <h2>Recursos que fazem a diferença</h2>
+  <ul>
+    <li><strong>Água quente:</strong> lava as louças profundamente e elimina germes e bactérias.</li>
+    <li><strong>Ciclo rápido de 30 minutos:</strong> louça limpa em tempo recorde.</li>
+    <li><strong>Fácil instalação:</strong> não precisa de encanamento, apenas uma tomada elétrica.</li>
+    <li><strong>Design moderno:</strong> elegante e discreto, combina com qualquer cozinha.</li>
+  </ul>
+
+  <h2>Características do produto</h2>
+  <ul>
+    <li><strong>Modelo:</strong> Lava Louça Praxis LPP04</li>
+    <li><strong>Potência:</strong> 1200W</li>
+    <li><strong>Reservatório:</strong> 3 litros</li>
+    <li><strong>Consumo de água:</strong> apenas 2,5 litros por lavagem</li>
+    <li><strong>Alimentação:</strong> disponível nas voltagens 127V (EAN 7899650331175) e 220V (EAN 7899650331182)</li>
+    <li><strong>Ciclos:</strong> lavagem, enxágue e higienização</li>
+    <li><strong>Abertura:</strong> superior</li>
+    <li><strong>Itens inclusos:</strong> Copo medidor e jarra de abastecimento</li>
+    <li><strong>Funções especiais:</strong> higienização de alimentos e frutas com água fria; louças com água quente</li>
+  </ul>
+
+  <h2>Dimensões</h2>
+  <ul>
+    <li><strong>Altura:</strong> 47,1 cm</li>
+    <li><strong>Largura:</strong> 34,7 cm</li>
+    <li><strong>Profundidade:</strong> 47,2 cm</li>
+    <li><strong>Peso:</strong> 5,94 kg</li>
+  </ul>
+
+  <p class="legal-note"><strong>Observação:</strong> Produto só liga com 3 litros de água no reservatório. Categoria de eficiência energética A.</p>
+  </section>
+    
+        
+      <button id="verMaisBtn">Ver descrição completa</button>
+    </section>
+  </main>
+
+  <script>
+    const cep = localStorage.getItem("cep");
+    const cidade = localStorage.getItem("cidade");
+    if (cep && cidade) {
+      const link = document.getElementById("cep-link");
+      link.innerHTML = `<i class="fas fa-map-marker-alt"></i> Entrega para: <strong>${cep}, ${cidade}</strong>`;
+    }
+  </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const imagens = [
+    'assets/produto-teste9.jpeg',
+    'assets/produto-teste10.jpeg',
+    'assets/produto-teste11.jpeg',
+    'assets/produto-teste12.jpeg'
+  ];
+
+  let currentImageIndex = 0;
+  let startX = 0;
+  const mainImage = document.getElementById('mainImage');
+
+  function trocarImagem(index) {
+    const lightboxImg = document.querySelector('#lightbox img');
+
+    mainImage.classList.remove('fade-in');
+    mainImage.classList.add('fade-out');
+
+    if (lightboxImg) {
+      lightboxImg.classList.remove('fade-in');
+      lightboxImg.classList.add('fade-out');
+    }
+
+    setTimeout(() => {
+      mainImage.src = imagens[index];
+      mainImage.onload = () => {
+        mainImage.classList.remove('fade-out');
+        mainImage.classList.add('fade-in');
+      };
+
+      if (lightboxImg) {
+        lightboxImg.src = imagens[index];
+        lightboxImg.onload = () => {
+          lightboxImg.classList.remove('fade-out');
+          lightboxImg.classList.add('fade-in');
+        };
+      }
+    }, 100);
+
+    currentImageIndex = index;
+    document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+    if (document.querySelectorAll('.dot')[index]) {
+      document.querySelectorAll('.dot')[index].classList.add('active');
+    }
+  }
+
+  function handleSwipe(start, end) {
+    const deltaX = start - end;
+    if (Math.abs(deltaX) < 50) return;
+
+    if (deltaX > 0) {
+      currentImageIndex = (currentImageIndex + 1) % imagens.length;
+    } else {
+      currentImageIndex = (currentImageIndex - 1 + imagens.length) % imagens.length;
+    }
+    trocarImagem(currentImageIndex);
+  }
+
+  mainImage.addEventListener('click', function () {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.style.position = 'fixed';
+    lightbox.style.top = 0;
+    lightbox.style.left = 0;
+    lightbox.style.width = '100vw';
+    lightbox.style.height = '100vh';
+    lightbox.style.background = 'rgba(0,0,0,0.8)';
+    lightbox.style.display = 'flex';
+    lightbox.style.justifyContent = 'center';
+    lightbox.style.alignItems = 'center';
+    lightbox.style.zIndex = 1000;
+
+    const img = document.createElement('img');
+    img.src = imagens[currentImageIndex];
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.borderRadius = '10px';
+    img.style.transition = 'opacity 0.3s ease-in-out';
+    img.style.opacity = 1;
+
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    img.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+    img.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+    img.addEventListener('mousedown', (e) => startX = e.clientX);
+    img.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
+
+    lightbox.addEventListener('click', () => {
+      document.body.removeChild(lightbox);
+    });
+  });
+
+  // Swipe na imagem principal
+  mainImage.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+  mainImage.addEventListener('touchend', (e) => handleSwipe(startX, e.changedTouches[0].clientX));
+  mainImage.addEventListener('mousedown', (e) => startX = e.clientX);
+  mainImage.addEventListener('mouseup', (e) => handleSwipe(startX, e.clientX));
+
+  trocarImagem(0); // imagem inicial
+});
+</script>
+
+
+  <div id="opinioes-container"></div>
+  <script>
+    fetch("opinions3.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("opinioes-container").innerHTML = html;
+        const script = document.createElement("script");
+        script.src = "opinions3.js";
+        document.body.appendChild(script);
+      });
+  </script>
+
+  <script>
+    const verMaisBtn = document.getElementById("verMaisBtn");
+    const desc = document.querySelector(".descricao-limitada");
+    verMaisBtn.addEventListener("click", () => {
+      desc.classList.toggle("expandido");
+      verMaisBtn.textContent = desc.classList.contains("expandido") ? "Ver menos" : "Ver mais";
+    });
+  </script>
+
+  <div id="sugestoes-container"></div>
+  <script src="sugestoes3.js"></script>
+
+  <div id="footer-container"></div>
+  <script src="frete.js"></script>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      });
+  </script>
+</body>
+      </html>
